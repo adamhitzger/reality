@@ -19,27 +19,34 @@ interface Props {
 
 export default function TextWithImage({ heading, text, image, button, position, image_pos, heading_cap }: Props) {
     return (
-        <section className={`flex ${position === "Obrázek vlevo" ? "flex-row-reverse" : "flex-row"} `}>
-            <div className="w-1/2">
-                {heading &&
-                    <h2 className={`${heading_cap === "Uppercase" ? "uppercase" : "lowercase"}`}>{heading}</h2>
-                }
-                <PortableText value={text} />
-                {button &&
-                    <Link href={button.url}>
-                        <Button>{button.text}</Button>
-                    </Link>
-                }
+        <section
+            className={`flex flex-col md:flex-row h-screen p-6 ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} mb-8 p-4 bg-gray-100`}>
+            <div className="w-full md:w-1/2 p-4 flex flex-col justify-center">
+                {heading && (
+                    <h2 className={`text-2xl font-bold text-center ${heading_cap === "Uppercase" ? "uppercase" : "lowercase"} mb-4`}>
+                        {heading}
+                    </h2>
+                )}
+                <div className="text-gray-700 mb-4 mt-4 ml-32 w-96">
+                    <PortableText value={text} />
+                </div>
+                {button && (
+                    <div className="flex justify-center mt-4">
+                        <Link href={button.url}>
+                            <Button
+                                className="bg-transparent hover:bg-[#897953] hover:text-white text-black px-4 border border-gray-800 h-20 overflow-ellipsis overflow-hidden"
+                            >
+                                {button.text}
+                            </Button>
+                        </Link>
+                    </div>
+                )}
             </div>
-            <div className="flex w-1/2 border">
-                <div className={`relative ${image_pos === "1/2 sekce" ? "w-full" : (
-                    image_pos === "1/4 sekce" ? "w-1/2" : "w-2/3"
-                )
-                    }`}>
-                    <Image src={image} alt={image} fill={true} className="object-cover" />
+            <div className="w-full md:w-1/2 flex justify-center items-center border">
+                <div className="relative w-full h-full py-40 lg:py-0">
+                    <Image src={image} alt={heading} fill={true} className="object-cover" />
                 </div>
             </div>
-        </section >
-    )
+        </section>
+    );
 }
-
