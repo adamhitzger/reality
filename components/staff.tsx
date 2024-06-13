@@ -9,7 +9,7 @@ export default function StaffComponent({ staff }: { staff: SanityDocument[] }) {
         <div className='w-full'>
             {staff.map((employee: any, id: number) => (
                 <div key={id} className='w-full flex lg:flex-wrap'>
-                    <div className='w-1/2'>
+                    <div className='w-1/2 flex-col'>
                         <span>{employee.name}</span>
                         <span>{employee.position}</span>
                         {employee.url &&
@@ -17,7 +17,7 @@ export default function StaffComponent({ staff }: { staff: SanityDocument[] }) {
                                 <Button>Personální web</Button>
                             </Link>
                         }
-                        <PortableText value={employee.desc} />
+                        <PortableText value={employee.description} />
                     </div>
                     <div className='w-1/2 relative'>
                         <Image src={employee.staffUrl} alt={employee.staffUrl} fill={true} className='object cover' />
