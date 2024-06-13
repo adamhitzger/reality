@@ -19,7 +19,6 @@ interface Props {
 
 export default function TextWithImage({ heading, text, image, button, position, image_pos, heading_cap }: Props) {
     return (
-
         <section
             className={`flex flex-col md:flex-row h-screen ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} mb-8 bg-gray-100`}>
             <div className="w-full md:w-1/2 p-40 flex flex-col justify-center">
