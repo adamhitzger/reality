@@ -19,9 +19,10 @@ interface Props {
 
 export default function TextWithImage({ heading, text, image, button, position, image_pos, heading_cap }: Props) {
     return (
+
         <section
-            className={`flex flex-col md:flex-row h-screen p-6 ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} mb-8 p-4 bg-gray-100`}>
-            <div className="w-full md:w-1/2 p-4 flex flex-col justify-center">
+            className={`flex flex-col md:flex-row h-screen ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} mb-8 bg-gray-100`}>
+            <div className="w-full md:w-1/2 p-40 flex flex-col justify-center">
                 {heading && (
                     <h2 className={`text-2xl font-bold text-center ${heading_cap === "Uppercase" ? "uppercase" : "lowercase"} mb-4`}>
                         {heading}
@@ -42,7 +43,7 @@ export default function TextWithImage({ heading, text, image, button, position, 
                     </div>
                 )}
             </div>
-            <div className="w-full md:w-1/2 flex justify-center items-center border">
+            <div className={`w-full md: ${image_pos === "1/2 sekce" ? "w-1/2" : image_pos === "1/4 sekce" ? "w-1/3 h-1/2 " : "w-1/6"} flex justify-center items-center border`}>
                 <div className="relative w-full h-full py-40 lg:py-0">
                     <Image src={image} alt={heading} fill={true} className="object-cover" />
                 </div>

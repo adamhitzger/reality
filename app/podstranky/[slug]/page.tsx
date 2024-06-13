@@ -17,7 +17,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         return notFound()
     }
     return (
-        <main className="container mx-auto p-4">
+        <main className=" mx-auto">
             {page.sections?.map((s: any, id: number) => (
                 s._type === "textWithImage" && (
                     <TextWithImage
@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                     <Heading key={id} text={s.text} />
                 ) || s._type == "button" && (
                     <Link key={id} href={s.url}>
-                        <Button className="flex bg-transparent hover:bg-[#897953] hover:text-white text-black px-4 border border-gray-800 w-40 h-16 items-center justify-center">
+                        <Button className="bg-transparent hover:bg-[#897953] hover:text-white text-black px-4 border border-gray-800 h-20 overflow-ellipsis overflow-hidden mb-16">
                             {s.text}</Button>
                     </Link>
                 ) || s._type === "steps" && (
