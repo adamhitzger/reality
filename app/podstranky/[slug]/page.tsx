@@ -17,7 +17,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         return notFound()
     }
     return (
-        <main>
+        <main className=" mx-auto">
             {page.sections?.map((s: any, id: number) => (
                 s._type === "textWithImage" && (
                     <TextWithImage
@@ -34,7 +34,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
                     <Heading key={id} text={s.text} />
                 ) || s._type == "button" && (
                     <Link key={id} href={s.url}>
-                        <Button>{s.text}</Button>
+                        <Button className="bg-transparent hover:bg-[#897953] hover:text-white text-black px-4 border border-gray-800 h-20 overflow-ellipsis overflow-hidden mb-16">
+                            {s.text}</Button>
                     </Link>
                 ) || s._type === "steps" && (
                     <div key={id} className="grid grid-cols-3">
@@ -43,14 +44,16 @@ export default async function Page({ params }: { params: { slug: string } }) {
                         )}
                     </div>
                 ) || s._type === "accorditions" && (
-                    <Accordion key={id} type="single" collapsible className="grid grid-rows-1">
-                        {s.accorditions.map((accordion: any, id: number) => (
-                            <AccordionItem key={id} value={`item-${id}`}>
-                                <AccordionTrigger>{accordion.heading}</AccordionTrigger>
-                                <AccordionContent>{accordion.text}</AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
+                    <div className="flex justify-center items-center">
+                        <Accordion key={id} type="single" collapsible className="grid grid-rows-1  w-1/2 space-y-4 shadow-lg">
+                            {s.accorditions.map((accordion: any, id: number) => (
+                                <AccordionItem key={id} value={`item-${id}`} className=" bg-white-500 px-10">
+                                    <AccordionTrigger className="text-2xl">{accordion.heading}</AccordionTrigger>
+                                    <AccordionContent className="text-base">{accordion.text}</AccordionContent>
+                                </AccordionItem>
+                            ))}
+                        </Accordion>
+                    </div>
                 )))}
         </main>
     )
