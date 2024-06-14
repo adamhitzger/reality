@@ -31,7 +31,12 @@ export default async function Home() {
   console.log(staff);
   console.log("--------------");
   console.log(pages);
-
+  {/**
+    const button = {
+      url: "localhost:3000",
+      text: "Koukni sem"
+    }
+    */}
   return (
     <main className="flex flex-col">
       <Realities realities={realities} />

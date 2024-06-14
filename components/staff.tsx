@@ -20,7 +20,7 @@ export default function StaffComponent({ staff }: { staff: SanityDocument[] }) {
                         <PortableText value={employee.description} />
                     </div>
                     <div className='w-1/2 relative'>
-                        <Image src={employee.staffUrl} alt={employee.staffUrl} fill={true} className='object cover' />
+                        <Image src={employee.staffUrl} alt={employee.staffUrl} fill={true} className='object-contain' />
                     </div>
                 </div>
             ))}

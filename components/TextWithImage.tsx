@@ -8,26 +8,26 @@ type Image_Pos = "1/2 sekce" | "1/4 sekce" | "1/6 sekce";
 type Heading_Cap = "Uppercase" | "Lowercase";
 
 interface Props {
-    heading: string;
+    heading?: string;
     text: any;
     image: string;
-    button : any;
+    button?: any;
     position: Position;
     image_pos: Image_Pos;
-    heading_cap: Heading_Cap;
+    heading_cap?: Heading_Cap;
 }
 
 export default function TextWithImage({ heading, text, image, button, position, image_pos, heading_cap }: Props) {
     return (
         <section
-            className={`flex flex-col md:flex-row h-screen ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} mb-8 bg-gray-100`}>
-            <div className="w-full md:w-1/2 p-40 flex flex-col justify-center">
+            className={`flex flex-wrap md:flex-nowrap h-screen ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} mb-8 bg-gray-100`}>
+            <div className="w-full md:w-1/2 flex flex-col px-20">
                 {heading && (
-                    <h2 className={`text-2xl font-bold text-center ${heading_cap === "Uppercase" ? "uppercase" : "lowercase"} mb-4`}>
+                    <h2 className={`text-2xl font-bold text-center ${heading_cap === "Uppercase" ? "uppercase" : "lowercase"} pt-24`}>
                         {heading}
                     </h2>
                 )}
-                <div className="text-gray-700 mb-4 mt-4 ml-32 w-96">
+                <div className={`text-gray-700 ${heading ? "pt-5" : "pt-20"} `}>
                     <PortableText value={text} />
                 </div>
                 {button && (
@@ -42,9 +42,9 @@ export default function TextWithImage({ heading, text, image, button, position, 
                     </div>
                 )}
             </div>
-            <div className={`w-full md: ${image_pos === "1/2 sekce" ? "w-1/2" : image_pos === "1/4 sekce" ? "w-1/3 h-1/2 " : "w-1/6"} flex justify-center items-center border`}>
-                <div className="relative w-full h-full py-40 lg:py-0">
-                    <Image src={image} alt={heading} fill={true} className="object-cover" />
+            <div className={`w-1/2 flex justify-center`}>
+                <div className={`relative h-full ${image_pos === "1/2 sekce" ? "w-full" : (image_pos === "1/4 sekce" ? "w-5/6" : "w-2/3")}`}>
+                    <Image src={image} alt={image} fill={true} className="object-cover" />
                 </div>
             </div>
         </section>
