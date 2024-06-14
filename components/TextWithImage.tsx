@@ -11,7 +11,7 @@ interface Props {
     heading: string;
     text: any;
     image: string;
-    button: any;
+    button : any;
     position: Position;
     image_pos: Image_Pos;
     heading_cap: Heading_Cap;
