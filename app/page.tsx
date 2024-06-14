@@ -1,14 +1,11 @@
+import TextWithImage from "@/components/TextWithImage";
 import PagesComponent from "@/components/pages";
 import Realities from "@/components/realities";
 import StaffComponent from "@/components/staff";
-import TextLeftComponent from "@/components/textLeft";
-import TextLeftComponent2 from "@/components/textLeft2";
-import TextLeftComponent3 from "@/components/textLeft3";
-import TextRight from "@/components/textRight";
-import TextRight2 from "@/components/textRight2";
-import TextRight3 from "@/components/textRight3";
+import { homePage } from "@/constants";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { PAGES_QUERY, REALITIES_QUERY, STAFF_QUERY } from "@/sanity/lib/queries";
+import { TextWithImageProps } from "@/types";
 import { SanityDocument } from "next-sanity";
 
 export default async function Home() {
@@ -31,23 +28,24 @@ export default async function Home() {
   console.log(staff);
   console.log("--------------");
   console.log(pages);
-  {/**
-    const button = {
-      url: "localhost:3000",
-      text: "Koukni sem"
-    }
-    */}
   return (
     <main className="flex flex-col">
       <Realities realities={realities} />
       <PagesComponent pages={pages} />
       <StaffComponent staff={staff} />
-      <TextLeftComponent />
-      <TextRight />
-      <TextLeftComponent2 />
-      <TextRight2 />
-      <TextLeftComponent3 />
-      <TextRight3 />
+      {homePage.map((section: TextWithImageProps, id: number) => (
+        <TextWithImage
+          key={id}
+          heading={section.heading}
+          text={section.text}
+          image_pos={section.image_pos}
+          image={section.image}
+          position={section.position}
+          button={section.button}
+          heading_cap={section.heading_cap}
+          isDynamic={false}
+        />
+      ))}
     </main>
   );
 }

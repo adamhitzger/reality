@@ -1,23 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { PortableText } from "next-sanity";
+import { PortableText, PortableTextComponent, PortableTextReactComponents, PortableTextComponentProps, PortableTextBlock } from "next-sanity";
+import { TextWithImageProps } from "@/types";
 
-type Position = "Text vlevo" | "Obrázek vlevo";
-type Image_Pos = "1/2 sekce" | "1/4 sekce" | "1/6 sekce";
-type Heading_Cap = "Uppercase" | "Lowercase";
 
-interface Props {
-    heading?: string;
-    text: any;
-    image: string;
-    button?: any;
-    position: Position;
-    image_pos: Image_Pos;
-    heading_cap?: Heading_Cap;
-}
+export default function TextWithImage({ heading, text, image, button, position, image_pos, heading_cap, isDynamic }: TextWithImageProps) {
 
-export default function TextWithImage({ heading, text, image, button, position, image_pos, heading_cap }: Props) {
     return (
         <section
             className={`flex flex-wrap md:flex-nowrap h-screen ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} mb-8 bg-gray-100`}>
@@ -28,7 +17,10 @@ export default function TextWithImage({ heading, text, image, button, position, 
                     </h2>
                 )}
                 <div className={`text-gray-700 ${heading ? "pt-5" : "pt-20"} `}>
-                    <PortableText value={text} />
+                    {isDynamic ? <PortableText
+                        value={text}
+                    /> : <p>{text}</p>}
+
                 </div>
                 {button && (
                     <div className="flex justify-center mt-4">

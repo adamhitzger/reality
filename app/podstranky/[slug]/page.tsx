@@ -30,6 +30,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                         position={s.position}
                         image_pos={s.image_pos}
                         heading_cap={s.heading_cap}
+                        isDynamic={true}
                     />
                 ) || s._type === "heading" && (
                     <Heading key={id} text={s.text} />
