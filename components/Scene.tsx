@@ -2,13 +2,14 @@
 
 import React from 'react'
 import { Canvas, Vector3 } from "@react-three/fiber";
-import { OrbitControls, Plane, useTexture } from "@react-three/drei";
+import { OrbitControls, Plane, ScrollControls, useTexture } from "@react-three/drei";
 import { SanityDocument } from 'next-sanity';
+import { BookInter, BookPos } from '@/sanity/lib/interfaces';
 
 
-function List({ front, back, position }: { front: string, back: string, position: Vector3 }) {
-    const frontTexture = useTexture(front);
-    const backTexture = useTexture(back);
+function List({ frontUrl, backUrl, position }: BookPos) {
+    const frontTexture = useTexture(frontUrl);
+    const backTexture = useTexture(backUrl);
     return (
         <group position={position}>
             <Plane args={[10, 10]} position={[0, 0, 0]}>
@@ -21,15 +22,15 @@ function List({ front, back, position }: { front: string, back: string, position
     )
 }
 
-export function Scene({ book }: { book: SanityDocument[] }) {
+export function Scene({ book }: { book: BookInter[] }) {
     return (
         <Canvas>
             <ambientLight />
-            <OrbitControls />
-            {book.map((page: any, id: number) => (
-                <List key={id} back={page.backUrl} front={page.frontUrl} position={[0, 0, id / 1]} />
-            ))}
-
+            <ScrollControls pages={book.length - 1}>
+                {book.map((page: any, id: number) => (
+                    <List key={id} backUrl={page.backUrl} frontUrl={page.frontUrl} position={[0, 0, id / 1]} />
+                ))}
+            </ScrollControls>
         </Canvas>
     )
 }

@@ -7,10 +7,11 @@ import { SanityDocument } from 'next-sanity';
 import React from 'react'
 import { Vector3 } from 'three';
 import { BOOK_QUERY } from '@/sanity/lib/queries';
+import { BookInter } from '@/sanity/lib/interfaces';
 
 
 export default async function Book() {
-    const data = await sanityFetch<SanityDocument[]>({
+    const data = await sanityFetch<BookInter[]>({
         query: BOOK_QUERY,
     })
     console.log(data);

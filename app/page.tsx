@@ -5,15 +5,10 @@ import Realities from "@/components/realities";
 import StaffComponent from "@/components/staff";
 import { homePage } from "@/constants";
 import { sanityFetch } from "@/sanity/lib/fetch";
-import { Pages, RealityCard, Staff, TextWithImageSection } from "@/sanity/lib/interfaces";
+import { Pages, Staff, TextWithImageSection } from "@/sanity/lib/interfaces";
 import { PAGES_QUERY, REALITIES_QUERY, STAFF_QUERY } from "@/sanity/lib/queries";
-import { SanityDocument } from "next-sanity";
-<<<<<<< HEAD
-import { Reality } from "@/sanity/lib/interfaces";
-=======
 import Image from "next/image";
-
->>>>>>> b47e70ecd9993590c48df342243478fd1cbed6d7
+import { Reality } from "@/sanity/lib/interfaces";
 export default async function Home() {
   const realitiesPromise = sanityFetch<Reality[]>({
     query: REALITIES_QUERY,
@@ -39,10 +34,10 @@ export default async function Home() {
       <section
         className={`flex flex-wrap md:flex-nowrap h-screen mb-8 bg-gray-100`}>
         <div className="w-full md:w-1/2 flex flex-col justify-center items-center px-20 mx-auto relative">
-          <Image src="/logo.jpg" alt="logo" fill={true} className="object-cover w-full"/>
+          <Image src="/logo.jpg" alt="logo" fill={true} className="object-cover w-full" />
         </div>
         <div className={`w-1/2 relative flex justify-center`}>
-            <Image src="/hero-image.jpg" alt="test" className="object-cover w-full"  fill={true} />
+          <Image src="/hero-image.jpg" alt="test" className="object-cover w-full" fill={true} />
         </div>
       </section>
       <Realities realities={realities} />

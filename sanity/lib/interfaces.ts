@@ -1,3 +1,4 @@
+import { Vector3 } from "@react-three/fiber";
 import { Image } from "sanity";
 
 type Heating = "Ústřední topení" | "Tuhá paliva" | "Vlastní";
@@ -60,10 +61,14 @@ interface AccorditionsSection {
     accorditions: Accordition[];
   };
 
-export interface Book {
-    front: string;
-    back: string;
+export interface BookInter {
+    frontUrl: string;
+    backUrl: string;
 };
+
+export interface BookPos extends BookInter {
+    position: Vector3 | undefined;
+}
 
 export interface Staff {
     name: string;
