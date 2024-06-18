@@ -1,4 +1,5 @@
 import TextWithImage from "@/components/TextWithImage";
+import Footer from "@/components/Footer";
 import PagesComponent from "@/components/pages";
 import Realities from "@/components/realities";
 import StaffComponent from "@/components/staff";
@@ -7,6 +8,7 @@ import { sanityFetch } from "@/sanity/lib/fetch";
 import { PAGES_QUERY, REALITIES_QUERY, STAFF_QUERY } from "@/sanity/lib/queries";
 import { TextWithImageProps } from "@/types";
 import { SanityDocument } from "next-sanity";
+import Image from "next/image";
 
 export default async function Home() {
   const realitiesPromise = sanityFetch<SanityDocument[]>({
@@ -30,6 +32,15 @@ export default async function Home() {
   console.log(pages);
   return (
     <main className="flex flex-col">
+      <section
+        className={`flex flex-wrap md:flex-nowrap h-screen mb-8 bg-gray-100`}>
+        <div className="w-full md:w-1/2 flex flex-col justify-center items-center px-20 mx-auto relative">
+          <Image src="/logo.jpg" alt="logo" fill={true} className="object-cover w-full"/>
+        </div>
+        <div className={`w-1/2 relative flex justify-center`}>
+            <Image src="/hero-image.jpg" alt="test" className="object-cover w-full"  fill={true} />
+        </div>
+      </section>
       <Realities realities={realities} />
       <PagesComponent pages={pages} />
       <StaffComponent staff={staff} />
@@ -46,6 +57,7 @@ export default async function Home() {
           isDynamic={false}
         />
       ))}
+      <Footer />
     </main>
   );
 }
