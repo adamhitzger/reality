@@ -8,9 +8,10 @@ import Heading from "@/components/Heading";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Step from "@/components/Step";
+import { MyPage, Section, Steps, TextWithImageSection } from "@/sanity/lib/interfaces";
 
 export default async function Page({ params }: { params: { slug: string } }) {
-    const page = await sanityFetch<SanityDocument>({ query: PAGE_QUERY, params });
+    const page = await sanityFetch<MyPage>({ query: PAGE_QUERY, params });
 
     console.log(page);
     if (!page) {
@@ -19,13 +20,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
     return (
         <main className=" mx-auto">
-            {page.sections?.map((s: any, id: number) => (
+            {page.sections?.map((s: Section, id: number) => (
                 s._type === "textWithImage" && (
                     <TextWithImage
                         key={id}
+                        _type="textWithImage"
                         heading={s.heading}
                         text={s.text}
-                        image={s.textWithImageUrl}
+                        textWithImageUrl={s.textWithImageUrl}
                         button={s.button}
                         position={s.position}
                         image_pos={s.image_pos}
@@ -44,7 +46,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                     </div>
                 ) || s._type === "steps" && (
                     <div key={id} className="grid grid-cols-3">
-                        {s.steps.map((step: any, id: number) =>
+                        {s.steps.map((step: Steps, id: number) =>
                             <Step key={id} iconUrl={step.iconUrl} number={step.number} desc={step.desc} />
                         )}
                     </div>

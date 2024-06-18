@@ -24,10 +24,6 @@ export const locate: DocumentLocationResolver = (params, context) => {
               title: doc.title || "Untitled",
               href: `/${doc.slug.current}`,
             },
-            {
-              title: "Realitites",
-              href: "/",
-            },
           ],
         };
       })

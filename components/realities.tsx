@@ -9,8 +9,9 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button"
 import Image from "next/image";
+import { Reality, RealityCard } from "@/sanity/lib/interfaces";
 
-export default function Realities({ realities }: { realities: SanityDocument[] }) {
+export default function Realities({ realities }: { realities: RealityCard[] }) {
     return (<div className="grid grid-cols-2 w-full gap-5">
         {realities?.length > 0 ? (
             realities.map((r, i) => (

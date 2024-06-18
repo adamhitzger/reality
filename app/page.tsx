@@ -4,18 +4,18 @@ import Realities from "@/components/realities";
 import StaffComponent from "@/components/staff";
 import { homePage } from "@/constants";
 import { sanityFetch } from "@/sanity/lib/fetch";
+import { Pages, RealityCard, Staff, TextWithImageSection } from "@/sanity/lib/interfaces";
 import { PAGES_QUERY, REALITIES_QUERY, STAFF_QUERY } from "@/sanity/lib/queries";
-import { TextWithImageProps } from "@/types";
 import { SanityDocument } from "next-sanity";
-
+import { Reality } from "@/sanity/lib/interfaces";
 export default async function Home() {
-  const realitiesPromise = sanityFetch<SanityDocument[]>({
+  const realitiesPromise = sanityFetch<Reality[]>({
     query: REALITIES_QUERY,
   });
-  const pagesPromise = sanityFetch<SanityDocument[]>({
+  const pagesPromise = sanityFetch<Pages[]>({
     query: PAGES_QUERY,
   });
-  const staffPromise = sanityFetch<SanityDocument[]>({
+  const staffPromise = sanityFetch<Staff[]>({
     query: STAFF_QUERY,
   });
 
@@ -33,13 +33,14 @@ export default async function Home() {
       <Realities realities={realities} />
       <PagesComponent pages={pages} />
       <StaffComponent staff={staff} />
-      {homePage.map((section: TextWithImageProps, id: number) => (
+      {homePage.map((section: TextWithImageSection, id: number) => (
         <TextWithImage
           key={id}
+          _type="textWithImage"
           heading={section.heading}
           text={section.text}
           image_pos={section.image_pos}
-          image={section.image}
+          textWithImageUrl={section.textWithImageUrl}
           position={section.position}
           button={section.button}
           heading_cap={section.heading_cap}

@@ -9,8 +9,10 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button"
 import Image from "next/image";
+import { Pages } from "@/sanity/lib/interfaces";
+import Link from "next/link";
 
-export default function PagesComponent({ pages }: { pages: SanityDocument[] }) {
+export default function PagesComponent({ pages }: { pages: Pages[] }) {
     console.log(pages);
     return (<div className="grid grid-cols-2 w-full gap-5">
         {pages?.length > 0 ? (
@@ -29,18 +31,8 @@ export default function PagesComponent({ pages }: { pages: SanityDocument[] }) {
                         <CardTitle>{p.name}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        {p.sections?.map((section: any, index: number) => (
-                            p.sections._type === "textWithImage" && (
-                                <div key={index}>
-                                    <h4>{section.heading}</h4>
-                                    <p>{section.text}</p>
-                                </div>
-                            )))}
-
+                        <Link href={`/podstranky/${p.slug}`}><Button>{p.name}</Button></Link>
                     </CardContent>
-                    <CardFooter>
-                        <a href={`/podstranky/${p.slug}`}><Button>{p.name}</Button></a>
-                    </CardFooter>
                 </Card>
             ))
         ) : (

@@ -2,10 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { PortableText, PortableTextComponent, PortableTextReactComponents, PortableTextComponentProps, PortableTextBlock } from "next-sanity";
-import { TextWithImageProps } from "@/types";
+import { TextWithImageSection } from "@/sanity/lib/interfaces";
+import image from "next/image";
 
 
-export default function TextWithImage({ heading, text, image, button, position, image_pos, heading_cap, isDynamic }: TextWithImageProps) {
+export default function TextWithImage({ heading, text, textWithImageUrl, button, position, image_pos, heading_cap, isDynamic, _type = "textWithImage" }: TextWithImageSection) {
 
     return (
         <section
@@ -36,7 +37,7 @@ export default function TextWithImage({ heading, text, image, button, position, 
             </div>
             <div className={`w-1/2 flex justify-center`}>
                 <div className={`relative h-full ${image_pos === "1/2 sekce" ? "w-full" : (image_pos === "1/4 sekce" ? "w-5/6" : "w-2/3")}`}>
-                    <Image src={image} alt={image} fill={true} className="object-cover" />
+                    <Image src={textWithImageUrl} alt={textWithImageUrl} fill={true} className="object-cover" />
                 </div>
             </div>
         </section>

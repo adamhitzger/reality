@@ -43,6 +43,7 @@ export const REALITIES_QUERY = groq`*[_type == 'reality'] | order(_createdAt des
    geopoint,
    status,
    realtor,
+   material,
    type,
    equipment,
    garage,

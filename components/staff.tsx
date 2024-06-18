@@ -3,8 +3,9 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from './ui/button'
+import { Staff } from '@/sanity/lib/interfaces'
 
-export default function StaffComponent({ staff }: { staff: SanityDocument[] }) {
+export default function StaffComponent({ staff }: { staff: Staff[] }) {
     return (
         <div className='w-full'>
             {staff.map((employee: any, id: number) => (
