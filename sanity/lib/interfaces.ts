@@ -1,5 +1,5 @@
 import { Vector3 } from "@react-three/fiber";
-import { Image } from "sanity";
+import { MutableRefObject } from "react";
 
 type Heating = "Ústřední topení" | "Tuhá paliva" | "Vlastní";
 type Water = "Dálkový odvod" | "Studna" | "Vlastní";
@@ -74,6 +74,12 @@ export interface BookInter {
 
 export interface BookPos extends BookInter {
     position: Vector3 | undefined;
+    element?:  Element;
+}
+
+export interface MySceneProps {
+    children: React.ReactNode;
+    pages: number;
 }
 
 export interface Staff {
