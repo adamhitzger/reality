@@ -8,7 +8,8 @@ import { steps } from './steps'
 import { button } from './button'
 import { accordition } from './accordition'
 import { bookType } from './bookType'
+import { form } from './form'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [realityType, staffType, pageType, bookType, textWithImage,  heading, steps, button, accordition],
+  types: [realityType, staffType, pageType, bookType, textWithImage,  heading, steps, button, accordition, form],
 }

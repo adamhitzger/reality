@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Step from "@/components/Step";
 import { MyPage, Section, Steps, TextWithImageSection } from "@/sanity/lib/interfaces";
+import FormComponent from "@/components/contactForm";
 
 export default async function Page({ params }: { params: { slug: string } }) {
     const page = await sanityFetch<MyPage>({ query: PAGE_QUERY, params });
@@ -36,7 +37,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                     />
                 ) || s._type === "heading" && (
                     <Heading key={id} text={s.text} />
-                ) || s._type == "button" && (
+                ) || s._type === "button" && (
                     <div className="w-full flex justify-center items-center p-5">
                         <Link key={id} href={s.url}>
                             <Button className="bg-transparent hover:bg-[#897953] hover:text-white text-black px-4 border border-gray-800  overflow-ellipsis overflow-hidden py-7">
@@ -60,6 +61,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
                                 </AccordionItem>
                             ))}
                         </Accordion>
+                    </div>
+                ) || s._type ==="form" && (
+                    <div key={id} className="flex justify-center items-center">
+                        <FormComponent key={id} heading={s.heading} text={s.text} />
                     </div>
                 )))}
         </main>

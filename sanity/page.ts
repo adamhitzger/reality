@@ -53,6 +53,10 @@ export const pageType = defineType({
                     name: "accorditions",
                     type: "accorditions",
                 }),
+                defineArrayMember({
+                    name: "form",
+                    type: "form",
+                })
             ]
         }),
     ]

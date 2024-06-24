@@ -17,7 +17,7 @@ type Accordition = {
     text: string;
   };
 
-export type Section = TextWithImageSection | HeadingSection | StepsSection | ButtonSection | AccorditionsSection;
+export type Section = TextWithImageSection | HeadingSection | StepsSection | ButtonSection | AccorditionsSection | Form;
 
 export interface TextWithImageSection {
     _type: "textWithImage" | undefined;
@@ -48,6 +48,12 @@ export interface Steps {
     iconUrl: string;
     number: number;
     desc: string;
+  };
+
+  export interface Form {
+    _type: "form";
+    heading: string;
+    text: string;
   };
   
 interface ButtonSection {
@@ -144,3 +150,4 @@ export interface MyPage {
     pageImageUrl: string;
     sections: Section[];
 };
+
