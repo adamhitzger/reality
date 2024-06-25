@@ -1,12 +1,12 @@
 import React from 'react';
-
+import Footer from '@/components/Footer';
 export default function sContact(){
   return (
-    <>
-        <div>
-              <h1 >Kontaktujte nás</h1>
+    <><>
+          <div>
+              <h1>Kontaktujte nás</h1>
           </div>
-      <section className="min-h-screen flex items-center p-4">
+          <section className="min-h-screen flex items-center p-4">
               <div className="flex flex-col md:flex-row w-full h-full">
                   <div className="md:w-1/2 flex justify-center items-center p-4">
                       <div>
@@ -40,6 +40,6 @@ export default function sContact(){
                       </div>
                   </div>
               </div>
-          </section></>
+          </section></><Footer /></>
   );
 };
