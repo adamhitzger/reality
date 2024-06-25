@@ -26,7 +26,7 @@ function List({ frontUrl, backUrl, position }: BookPos) {
         <motion.group
             position={position}
             initial={false}
-            whileHover={{ scale: 1.3 }}
+            whileHover={{ y: 4 }}
             whileTap={{ scale: 1.1 }}
             onClick={() => setClick(!click)}
             animate={click ? "clicked" : "unclicked"}
@@ -35,7 +35,7 @@ function List({ frontUrl, backUrl, position }: BookPos) {
             <Plane args={[10, 10]} position={[0, 0, 0]}>
                 <meshStandardMaterial map={frontTexture} />
             </Plane>
-            <Plane args={[10, 10]} position={[0, 0, -0.001]} rotation-y={Math.PI / 1}>
+            <Plane args={[10, 10]} position={[0, 0, -0.001]} rotation-y={Math.PI}>
                 <meshStandardMaterial map={backTexture} />
             </Plane>
         </motion.group>
@@ -49,13 +49,9 @@ export function Expirience({ book }: { book: BookInter[] }) {
         <Canvas>
             <OrbitControls />
             <ambientLight />
-            <ScrollControls pages={pages} damping={0.35}>
-                <Scroll >
-                    {book.map((page: any, id: number) => (
-                        <List key={id} backUrl={page.backUrl} frontUrl={page.frontUrl} position={[id / 1, 0, 0]} />
-                    ))}
-                </Scroll>
-            </ScrollControls>
+            {book.map((page: any, id: number) => (
+                <List key={id} backUrl={page.backUrl} frontUrl={page.frontUrl} position={[id / 1, 0, 0]} />
+            ))}
         </Canvas>
     );
 
