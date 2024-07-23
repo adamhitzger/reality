@@ -44,7 +44,7 @@ export default function RealityComponent({ reality }: { reality: Reality }) {
                             />
                         </div>
                     )}
-                    {reality.galleryUrls && reality.galleryUrls.map((gallery, idx) => (
+                    {reality.galleryUrls && reality.galleryUrls.map((gallery, idx: number) => (
                         <div key={idx} className="md:col-span-1">
                             <Image
                                 src={gallery}

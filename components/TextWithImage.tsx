@@ -3,15 +3,14 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { PortableText, PortableTextComponent, PortableTextReactComponents, PortableTextComponentProps, PortableTextBlock } from "next-sanity";
 import { TextWithImageSection } from "@/sanity/lib/interfaces";
-import image from "next/image";
 
 
 export default function TextWithImage({ heading, text, textWithImageUrl, button, position, image_pos, heading_cap, isDynamic, _type = "textWithImage" }: TextWithImageSection) {
 
     return (
         <section
-            className={`flex flex-wrap md:flex-nowrap h-screen ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} mb-8 bg-gray-100`}>
-            <div className="w-full md:w-1/2 flex flex-col px-20">
+            className={`flex flex-wrap md:flex-nowrap h-max ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} mb-8 bg-gray-100`}>
+            <div className="w-full md:w-1/2 flex flex-col p-20">
                 {heading && (
                     <h2 className={`text-2xl font-bold text-center ${heading_cap === "Uppercase" ? "uppercase" : "lowercase"} pt-24`}>
                         {heading}

@@ -26,7 +26,7 @@ function List({ frontUrl, backUrl, position }: BookPos) {
         <motion.group
             position={position}
             initial={false}
-            whileHover={{ y: 4 }}
+            whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 1.1 }}
             onClick={() => setClick(!click)}
             animate={click ? "clicked" : "unclicked"}

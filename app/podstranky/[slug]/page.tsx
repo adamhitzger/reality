@@ -10,6 +10,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import Step from "@/components/Step";
 import { MyPage, Section, Steps, TextWithImageSection } from "@/sanity/lib/interfaces";
 import FormComponent from "@/components/contactForm";
+import Image from "next/image";
+import { url } from "inspector";
 
 export default async function Page({ params }: { params: { slug: string } }) {
     const page = await sanityFetch<MyPage>({ query: PAGE_QUERY, params });
@@ -21,6 +23,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
     return (
         <main className=" mx-auto">
+            <section className="w-full h-screen flex relative bg-no-repeat bg-cover " style={{ backgroundImage: `url(${page.pageImageUrl})` }}>
+                <div className="tracking-tight text-3xl m-auto text-white">
+                    {page.heading}
+                </div>
+            </section>
             {page.sections?.map((s: Section, id: number) => (
                 s._type === "textWithImage" && (
                     <TextWithImage
@@ -62,7 +69,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                             ))}
                         </Accordion>
                     </div>
-                ) || s._type ==="form" && (
+                ) || s._type === "form" && (
                     <div key={id} className="flex justify-center items-center">
                         <FormComponent key={id} heading={s.heading} text={s.text} />
                     </div>
