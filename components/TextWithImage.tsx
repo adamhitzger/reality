@@ -16,7 +16,7 @@ export default function TextWithImage({ heading, text, textWithImageUrl, button,
                             {heading}
                         </h2>
                     )}
-                    <div className={`text-gray-700 ${heading ? "pt-5" : null} text-center text-lg`}>
+                    <div className={`text-gray-700 ${heading ? "pt-5" : null} text-justify md:text-center text-lg`}>
                         {isDynamic ? <PortableText
                             value={text}
                         /> : <p>{text}</p>}

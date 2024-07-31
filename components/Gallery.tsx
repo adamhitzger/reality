@@ -1,22 +1,22 @@
 "use client";
 import React, { useState } from 'react'
-import Image from 'next/image';
+import Image from 'next/image'
 
-export default function Photos({ gallery }: { gallery: string[] }) {
+function Gallery({ gallery }: { gallery: string[] }) {
     const [selectedId, setSelectedId] = useState<string>("");
-    console.log(selectedId)
     return (
-        <section className="grid grid-cols-2 md:grid-cols-8 gap-2 w-full h-auto z-0">
-            {gallery.map((g, idx: number) => (
-                <div key={idx} className={`w-full ${selectedId === String(idx) ? "scale-110" : "scale-100"}`}
+        <div className="  grid grid-cols-2 grid-rows-6 md:grid-cols-4 md:grid-rows-3 py-5 md:px-5 md:py-0 w-full md:w-1/2 gap-2">
+            {gallery && gallery.map((gallery, idx: number) => (
+                <div key={idx}
+                    className="relative w-full "
                     onClick={() => setSelectedId(String(idx))}
                 >
                     <Image
-                        src={g}
+                        src={gallery}
                         alt={`Gallery Image ${idx + 1}`}
                         width={200}
                         height={200}
-                        className="rounded-lg shadow-lg w-full h-full object-contain"
+                        className="rounded-lg shadow-lg w-full h-auto md:h-32 object-cover"
                     />
                 </div>
             ))}
@@ -47,7 +47,8 @@ export default function Photos({ gallery }: { gallery: string[] }) {
                     ))}
                 </div>
             )}
-        </section>
+        </div>
     )
 }
 
+export default Gallery

@@ -31,18 +31,16 @@ function List({ frontUrl, backUrl, position, id }: BookPos) {
             position={position}
             initial={false}
             whileTap={{ scale: 1.1 }}
-            onClick={() => setClick(!click)}
             animate={click ? "clicked" : "unclicked"}
             variants={groupVariants}
         >
-            <Html>
-                {id}
-            </Html>
+
             <Plane args={[10, 10]} position={[0, 0, 0.003]}>
                 <meshStandardMaterial map={frontTexture} />
             </Plane>
-            <Plane args={[5, 0.2]} position={[3.5, -4, 0]} >
+            <Plane args={[5, 1]} position={[3.5, -2, 0]} onClick={() => setClick(!click)}>
                 <meshBasicMaterial side={THREE.DoubleSide} color="#897953" />
+
             </Plane>
             <Plane args={[10, 10]} position={[0, 0, -0.003]} rotation-y={Math.PI}>
                 <meshStandardMaterial map={backTexture} />
@@ -57,7 +55,7 @@ export function Expirience({ book }: { book: BookInter[] }) {
     const pages = book.length - 1;
     console.log(pages)
     return (
-        <Canvas className='flex w-full border-2' style={{ height: "100vh" }} camera={{ fov: 130 }}>
+        <Canvas className='flex w-full border-2' style={{ height: "100vh" }} camera={{ fov: 120 }}>
 
             <OrbitControls
                 minAzimuthAngle={-Math.PI / 4}
@@ -67,7 +65,7 @@ export function Expirience({ book }: { book: BookInter[] }) {
             />
             <ambientLight />
             {book.map((page: any, id: number) => (
-                <List backUrl={page.backUrl} frontUrl={page.frontUrl} position={[0, 0, 0]} key={id} id={id} />
+                <List backUrl={page.backUrl} frontUrl={page.frontUrl} position={[0, 0, id / 100]} key={id} id={id} />
 
             ))}
         </Canvas>

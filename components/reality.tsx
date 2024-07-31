@@ -12,30 +12,8 @@ import { form } from "sanity/structure";
 import { Button } from "./ui/button";
 import FormComponent from "@/components/formComp";
 import MyMap from "./MyMap";
-// ProfileCard
-/* function ProfileCard({ realtor }) {
-    if (!realtor) return null;
+import Gallery from "./Gallery";
 
-    return (
-        <div className="max-w-sm rounded overflow-hidden shadow-lg p-4 bg-white">
-            {realtor.image && (
-                <Image
-                    src={realtor.image}
-                    alt="Realtor Image"
-                    width={100}
-                    height={100}
-                    className="rounded-full mx-auto"
-                />
-            )}
-            <div className="text-center mt-4">
-                <h2 className="text-xl font-semibold">{realtor.name}</h2>
-                <p className="text-gray-600">{realtor.email}</p>
-                <p className="text-gray-600">{realtor.phone}</p>
-                <p className="text-gray-600">{realtor.company}</p>
-            </div>
-        </div>
-    );
-} */
 
 export default function RealityComponent({ reality }: { reality: Reality }) {
 
@@ -66,22 +44,7 @@ export default function RealityComponent({ reality }: { reality: Reality }) {
                         />
                     )}
                 </div>
-                <div className="  grid grid-cols-2 grid-rows-6 md:grid-cols-4 md:grid-rows-3 py-5 md:px-5 md:py-0 w-full md:w-1/2 gap-2">
-                    {gallery && gallery.map((gallery, idx: number) => (
-                        <div key={idx}
-                            className="relative w-full "
-
-                        >
-                            <Image
-                                src={gallery}
-                                alt={`Gallery Image ${idx + 1}`}
-                                width={200}
-                                height={200}
-                                className="rounded-lg shadow-lg w-full h-auto md:h-32 object-cover"
-                            />
-                        </div>
-                    ))}
-                </div>
+                <Gallery gallery={gallery} />
             </section>
             <Photos gallery={gallery2} />
 
@@ -100,7 +63,7 @@ export default function RealityComponent({ reality }: { reality: Reality }) {
                         isDynamic={true}
                     />
                 )))}
-            <section className="w-full pb-10  gap-4 grid grid-cols-2 grid-rows-2 md:grid-rows-1 md:grid-cols-4">
+            <section className="w-full pb-10  gap-4 grid grid-cols-1 grid-rows-4 md:grid-rows-1 md:grid-cols-4">
                 {/**uzemní plán, plán domu, katastr, mapa */}
                 {reality.planUrl && (
                     <div className="relative w-full">
@@ -130,6 +93,9 @@ export default function RealityComponent({ reality }: { reality: Reality }) {
                     </div>
 
                 )}
+            </section>
+            <section className="flex p-10 md:p-20 text-justify md:text-center text-xl font-light">
+                <p>Veškeré zveřejněné údaje obsažené v tomto inzerátu mají pouze informativní charakter a nejsou nabídkou ve smyslu § 1731 nebo § 1732 občanského zákoníku, ani se nejedná o veřejný příslib dle § 1733 občanského zákoníku. Z této nabídky tak nikomu nevzniká nárok na uzavření smlouvy. Společnost Hrdina Group s.r.o zprostředkovává údaje (informace) nabyté v dobré víře od vlastníka nemovité věci a z tohoto důvodu nenese odpovědnost za jejich úplnost, správnost a přesnost. Současně není oprávněna uzavírat jménem vlastníka nemovité věci jakékoliv smlouvy spojené s prodejem nemovitosti. </p>
             </section>
 
             <FormComponent heading="Máte zájem? Neváhejte nás kontakovat" text={reality.details} />

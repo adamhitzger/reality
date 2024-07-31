@@ -24,7 +24,7 @@ export default function Footer() {
     return (
         <footer className="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
             <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-col sm:flex-row items-center sm:justify-between">
                     <div className="flex justify-center items-center mb-4 sm:mb-0  h-20 relative w-28">
                         <Image src="/reality.png" className="h-8" alt="Hrdina reality logo" fill={true} />
                     </div>
