@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 import { newsletter } from '@/lib/actions';
 
 
-export default function ContactForm() {
+export default function MyContactForm() {
     const [form, setForm] = useState({
         jmeno: "",
         prijmeni: "",

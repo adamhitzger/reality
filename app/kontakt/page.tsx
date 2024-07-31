@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import MyMap from '@/components/MyMap';
-import ContactForm from '@/components/ContactForm';
+import MyContactForm from '@/components/MyContactForm';
 import { ArrowRight } from 'lucide-react';
 
 export default function ContactPage() {
@@ -13,7 +13,7 @@ export default function ContactPage() {
             <section className='flex flex-wrap md:flex-nowrap md:h-screen'>
                 <div className="w-full md:w-1/2 flex flex-col  px-5  font-light">
                     <h2 className='text-3xl font-semibold md:px-16'>Kontaktní formulář</h2>
-                    <ContactForm />
+                    <MyContactForm />
                 </div>
                 <div className={`w-full md:py-10 h-[28rem] md:h-screen md:w-1/2 flex justify-center`}>
                     <div className={`relative  h-full w-2/3`}>
