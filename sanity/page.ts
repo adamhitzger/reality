@@ -56,7 +56,7 @@ export const pageType = defineType({
                 defineArrayMember({
                     name: "form",
                     type: "form",
-                })
+                }),
             ]
         }),
     ]

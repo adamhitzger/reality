@@ -67,10 +67,16 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "card": {
+          from: { transform: "scale(1.0)", padding: "0rem", zIndex: "0", borderRadius: "0px"},
+          to: { transform: "scale(1.2)", padding: "0.5rem", zIndex: "10", borderRadius: "15px"},
+
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "card": "card 0.4s ease"
       },
     },
   },

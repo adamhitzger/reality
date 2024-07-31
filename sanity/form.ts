@@ -13,7 +13,10 @@ export const form = defineType({
         defineField({
             name: "text",
             title: "Text",
-            type: "string",
+            type: "array",
+            of: [
+                {type: "block"}
+            ]
         })
     ]
 

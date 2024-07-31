@@ -12,8 +12,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
         return notFound()
     }
     return (
-        <main>
-            <RealityComponent reality={reality} />
-        </main>
+        <RealityComponent reality={reality} />
     )
 } 

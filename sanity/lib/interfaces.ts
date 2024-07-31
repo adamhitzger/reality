@@ -17,6 +17,10 @@ type Accordition = {
     text: string;
   };
 
+  export interface SearchParamsProps {
+    searchParams: { [key: string]: string | undefined};
+  }
+
 export type Section = TextWithImageSection | HeadingSection | StepsSection | ButtonSection | AccorditionsSection | Form;
 
 export interface TextWithImageSection {
@@ -73,8 +77,11 @@ export interface BookInter {
 };
 
 export interface BookPos extends BookInter {
+    id: number,
     position: Vector3 | undefined;
     element?:  Element;
+    
+
 }
 
 export interface MySceneProps {
@@ -90,17 +97,18 @@ export interface Staff {
     staffUrl: string;
 };
 
+export interface SectionsOnMainPage {
+  poradi: number;
+  textWithImage: TextWithImageSection;
+}
+
 export interface RealityCard {
     name: string
     slug: {
         current: string;
     };
-    street: string;
-    street_number: string;
-    city: string;
-    postcode: string;
+    overview: string;
     imageUrl: string;
-    status: string;
     price: number;
 };
 
@@ -109,15 +117,18 @@ export interface Reality {
     slug: {
         current: string;
     };
+    overview: string;
     street: string;
     street_number: string;
     city: string;
     postcode: string;
     details: any;
+    sections: TextWithImageSection[];
     imageUrl: string;
     galleryUrls: string[];
     planUrl: string; 
-    price: number;
+    houseUrl: string
+    price: string;
     area: number;
     geopoint: {
         _type: string;

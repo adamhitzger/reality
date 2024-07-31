@@ -6,6 +6,11 @@ export const staffType = defineType({
     type: "document",
     fields: [
         defineField({
+            name: "poradi",
+            title: "Pořadí na stránce",
+            type: "number",
+        }),
+        defineField({
             name: "name",
             title: "Jméno a příjmení",
             type: "string",

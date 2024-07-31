@@ -1,4 +1,4 @@
-import { defineType, defineField } from "sanity"
+import { defineType, defineField, defineArrayMember } from "sanity"
 
 export const realityType = defineType({
     name: "reality",
@@ -17,6 +17,11 @@ export const realityType = defineType({
             options: {
                 source: "name"
             },
+        }),
+        defineField({
+            name: "overview",
+            title: "Náhledový text na hl. stránce",
+            type: "string",
         }),
         defineField({
             name: "street",
@@ -66,14 +71,30 @@ export const realityType = defineType({
             ]
         }),
         defineField({
+            name: "sections",
+            title: "Sekce stránky",
+            type: "array",
+            of: [
+                defineArrayMember({
+                    name: "textWithImage",
+                    type: "textWithImage",
+                }),
+            ]
+            }),
+        defineField({
             name: "floor_plan",
             title: "Územní plán",
             type: "image",
         }),
         defineField({
+            name: "house_plan",
+            title: "Plán domu",
+            type: "image",
+        }),
+        defineField({
             name: "price",
             title: "Cena",
-            type: "number",
+            type: "string",
         }),
         defineField({
             name: "area",

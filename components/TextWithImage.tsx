@@ -1,42 +1,42 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { PortableText, PortableTextComponent, PortableTextReactComponents, PortableTextComponentProps, PortableTextBlock } from "next-sanity";
+import { PortableText } from "next-sanity";
 import { TextWithImageSection } from "@/sanity/lib/interfaces";
-
 
 export default function TextWithImage({ heading, text, textWithImageUrl, button, position, image_pos, heading_cap, isDynamic, _type = "textWithImage" }: TextWithImageSection) {
 
     return (
         <section
-            className={`flex flex-wrap md:flex-nowrap h-max ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} mb-8 bg-gray-100`}>
-            <div className="w-full md:w-1/2 flex flex-col p-20">
-                {heading && (
-                    <h2 className={`text-2xl font-bold text-center ${heading_cap === "Uppercase" ? "uppercase" : "lowercase"} pt-24`}>
-                        {heading}
-                    </h2>
-                )}
-                <div className={`text-gray-700 ${heading ? "pt-5" : "pt-20"} `}>
-                    {isDynamic ? <PortableText
-                        value={text}
-                    /> : <p>{text}</p>}
+            className={` flex flex-wrap md:flex-nowrap px-10 py-20 md:min-h-fit  ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} `}>
+            <div className="w-full md:w-1/2 flex flex-col  px-5  font-light">
+                <div className="flex flex-col w-full m-auto px-10">
+                    {heading && (
+                        <h2 className={`text-2xl  text-center ${heading_cap === "Uppercase" ? "uppercase" : "normal-case"}`}>
+                            {heading}
+                        </h2>
+                    )}
+                    <div className={`text-gray-700 ${heading ? "pt-5" : null} text-center text-lg`}>
+                        {isDynamic ? <PortableText
+                            value={text}
+                        /> : <p>{text}</p>}
 
-                </div>
-                {button && (
-                    <div className="flex justify-center mt-4">
-                        <Link href={button.url}>
-                            <Button
-                                className="bg-transparent hover:bg-[#897953] hover:text-white text-black px-4 border border-gray-800 h-20 overflow-ellipsis overflow-hidden"
-                            >
-                                {button.text}
-                            </Button>
-                        </Link>
                     </div>
-                )}
+                    {button && (
+                        <div className="flex justify-center mx-auto mt-4 w-full px-2 md:w-1/2">
+                            <Link href={button.url}>
+                                <Button size={"lg"}
+                                >
+                                    {button.text}
+                                </Button>
+                            </Link>
+                        </div>
+                    )}
+                </div>
             </div>
-            <div className={`w-1/2 flex justify-center`}>
-                <div className={`relative h-full ${image_pos === "1/2 sekce" ? "w-full" : (image_pos === "1/4 sekce" ? "w-5/6" : "w-2/3")}`}>
-                    <Image src={textWithImageUrl} alt={textWithImageUrl} fill={true} className="object-cover" />
+            <div className={`w-full py-10 md:py-0 h-auto md:w-1/2 flex justify-center items-center`}>
+                <div className={`relative h-96 md:min-h-screen ${image_pos === "1/2 sekce" ? "w-full" : (image_pos === "1/4 sekce" ? "w-5/6" : "w-2/3")}`}>
+                    {textWithImageUrl ? <Image src={textWithImageUrl} alt={textWithImageUrl} fill={true} className="object-contain bg-contain" /> : null}
                 </div>
             </div>
         </section>

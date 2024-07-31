@@ -9,9 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Step from "@/components/Step";
 import { MyPage, Section, Steps, TextWithImageSection } from "@/sanity/lib/interfaces";
-import FormComponent from "@/components/contactForm";
-import Image from "next/image";
-import { url } from "inspector";
+import FormComponent from "@/components/formComp"
 
 export default async function Page({ params }: { params: { slug: string } }) {
     const page = await sanityFetch<MyPage>({ query: PAGE_QUERY, params });
@@ -22,9 +20,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
     }
 
     return (
-        <main className=" mx-auto">
-            <section className="w-full h-screen flex relative bg-no-repeat bg-cover " style={{ backgroundImage: `url(${page.pageImageUrl})` }}>
-                <div className="tracking-tight text-3xl m-auto text-white">
+        <main className=" flex flex-col">
+            <section className={`w-full ${!page.pageImageUrl ? "py-5" : "h-screen"} flex relative bg-no-repeat bg-cover `} style={page.pageImageUrl ? { backgroundImage: `url(${page.pageImageUrl})` } : { backgroundColor: "white" }}>
+                <div className={`tracking-tight text-center text-4xl m-auto ${!page.pageImageUrl ? "text-black py-10" : "text-white"}`}>
                     {page.heading}
                 </div>
             </section>
@@ -53,7 +51,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                         </Link>
                     </div>
                 ) || s._type === "steps" && (
-                    <div key={id} className="grid grid-cols-3">
+                    <div key={id} className="grid grid-cols-2 md:grid-cols-3">
                         {s.steps.map((step: Steps, id: number) =>
                             <Step key={id} iconUrl={step.iconUrl} number={step.number} desc={step.desc} />
                         )}

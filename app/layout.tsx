@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import { VisualEditing } from "next-sanity"
 import { draftMode } from "next/headers"
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const font = Montserrat({ subsets: ["latin"] })
 export const metadata: Metadata = {
@@ -25,7 +26,10 @@ export default function RootLayout({
             </a>
           </div>
         )}
-        <main>{children}</main>
+        <main>{children}
+
+        </main>
+        <Footer />
         {draftMode().isEnabled && <VisualEditing />}
       </body>
     </html>
