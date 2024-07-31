@@ -72,11 +72,22 @@ const config = {
           to: { transform: "scale(1.2)", padding: "0.5rem", zIndex: "10", borderRadius: "15px"},
 
         },
+        "slide-in": {
+          from: {
+            transform: "translateX(-100%)",
+            opacity: "opacity-0",
+          },
+          to: {
+            transform: "translateX(0)",
+            opacity: "opacity-100",
+          }
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "card": "card 0.4s ease"
+        "card": "card 0.4s ease",
+        "slide-in": "slide-in 0.3 ease-in",
       },
     },
   },

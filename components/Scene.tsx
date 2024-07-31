@@ -38,7 +38,7 @@ function List({ frontUrl, backUrl, position, id }: BookPos) {
             <Plane args={[10, 10]} position={[0, 0, 0.003]}>
                 <meshStandardMaterial map={frontTexture} />
             </Plane>
-            <Plane args={[5, 1]} position={[3.5, -2, 0]} onClick={() => setClick(!click)}>
+            <Plane args={[5, 2]} position={[3.5, -2, 0]} onClick={() => setClick(!click)}>
                 <meshBasicMaterial side={THREE.DoubleSide} color="#897953" />
 
             </Plane>

@@ -10,7 +10,7 @@ export default function TextWithImage({ heading, text, textWithImageUrl, button,
         <section
             className={` flex flex-wrap md:flex-nowrap px-10 py-20 md:min-h-fit  ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} `}>
             <div className="w-full md:w-1/2 flex flex-col  px-5  font-light">
-                <div className="flex flex-col w-full m-auto px-10">
+                <div className="flex flex-col w-full m-auto md:px-10">
                     {heading && (
                         <h2 className={`text-2xl  text-center ${heading_cap === "Uppercase" ? "uppercase" : "normal-case"}`}>
                             {heading}

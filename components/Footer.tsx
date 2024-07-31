@@ -59,6 +59,9 @@ export default function Footer() {
                 <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
                 <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© {year} <a href="https://cz.linkedin.com/in/adam-hitzger-aa518622b" className="hover:underline">Adam Hitzger</a>. All Rights Reserved.</span>
             </div>
+            <div className="w-full h-24">
+
+            </div>
         </footer>
     )
 }
