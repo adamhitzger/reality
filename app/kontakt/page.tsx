@@ -1,8 +1,9 @@
-import ContactForm from '@/components/ContactForm'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import MyMap from '@/components/MyMap'
+import ContactForm from '@/components/ContactForm'
 import { ArrowRight } from 'lucide-react'
 
 export default function ContactPage() {
