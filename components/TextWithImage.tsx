@@ -3,13 +3,14 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { PortableText } from "next-sanity";
 import { TextWithImageSection } from "@/sanity/lib/interfaces";
+import { components } from "@/sanity/lib/components";
 
 export default function TextWithImage({ heading, text, textWithImageUrl, button, position, image_pos, heading_cap, isDynamic, _type = "textWithImage" }: TextWithImageSection) {
 
     return (
         <section
-            className={` flex flex-wrap md:flex-nowrap px-10 py-20 md:min-h-fit  ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} `}>
-            <div className="w-full md:w-1/2 flex flex-col  px-5  font-light">
+            className={` flex flex-wrap md:flex-nowrap py-20 md:min-h-fit  ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} `}>
+            <div className="w-full md:w-1/2 flex flex-col    font-light">
                 <div className="flex flex-col w-full m-auto md:px-10">
                     {heading && (
                         <h2 className={`text-2xl  text-center ${heading_cap === "Uppercase" ? "uppercase" : "normal-case"}`}>
@@ -18,7 +19,7 @@ export default function TextWithImage({ heading, text, textWithImageUrl, button,
                     )}
                     <div className={`text-gray-700 ${heading ? "pt-5" : null} text-justify md:text-center text-lg`}>
                         {isDynamic ? <PortableText
-                            value={text}
+                            value={text} components={components}
                         /> : <p>{text}</p>}
 
                     </div>
@@ -36,7 +37,7 @@ export default function TextWithImage({ heading, text, textWithImageUrl, button,
             </div>
             <div className={`w-full py-10 md:py-0 h-auto md:w-1/2 flex justify-center items-center`}>
                 <div className={`relative h-96 md:min-h-screen ${image_pos === "1/2 sekce" ? "w-full" : (image_pos === "1/4 sekce" ? "w-5/6" : "w-2/3")}`}>
-                    {textWithImageUrl ? <Image src={textWithImageUrl} alt={textWithImageUrl} fill={true} className="object-contain bg-contain" /> : null}
+                    {textWithImageUrl ? <Image src={textWithImageUrl} alt={textWithImageUrl} fill={true} className="object-cover bg-cover" /> : null}
                 </div>
             </div>
         </section>

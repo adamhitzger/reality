@@ -8,10 +8,19 @@ import Navbar from "@/components/Navbar";
 
 const font = Montserrat({ subsets: ["latin"] })
 export const metadata: Metadata = {
-  title: "Hrdina Reality",
-  description: "Hrdina reality",
   icons: {
     icon: "/logo.jpg"
+  },
+  applicationName: "Hrdina reality",
+  generator: "Next.ts",
+  keywords: ["Hrdina reality Ostrov Havlíčkův Brod", "Realitní společnost", "Lukáš Hrdina", "Lukáš Hrdina Havlíčkův Brod", "Reality Havlíčkův Brod", "Havlíčkův Brod realitní makléř"],
+  openGraph: {
+    title: "Hrdina reality",
+    description: "Hrdina reality - můžete nás navštívit na adrese Havlíčkovo náměstí 56, Havlíčkův Brod 580 01 .",
+    url: "https://www.hrdinareality.cz",
+    siteName: "Hrdina reality Havlíčkův Brod",
+    locale: "cs_CZ",
+    type: "website"
   }
 
 };

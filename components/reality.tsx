@@ -63,7 +63,7 @@ export default function RealityComponent({ reality }: { reality: Reality }) {
                         isDynamic={true}
                     />
                 )))}
-            <section className="w-full pb-10  gap-4 grid grid-cols-1 grid-rows-4 md:grid-rows-1 md:grid-cols-4">
+            <section className="w-full pb-10  gap-4 grid grid-cols-1 grid-rows-3 md:grid-rows-1 md:grid-cols-3">
                 {/**uzemní plán, plán domu, katastr, mapa */}
                 {reality.planUrl && (
                     <div className="relative w-full">
@@ -88,7 +88,7 @@ export default function RealityComponent({ reality }: { reality: Reality }) {
                     </div>
                 )}
                 {reality.geopoint && (
-                    <div className="w-full rounded-[25px]">
+                    <div className="w-full h-auto rounded-[25px]">
                         <MyMap latitude={reality.geopoint.lat} longitude={reality.geopoint.lng} />
                     </div>
 

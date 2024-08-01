@@ -4,6 +4,7 @@ import { PortableText } from "next-sanity";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import { newsletter } from "@/lib/actions";
+import { components } from "@/sanity/lib/components";
 export default function FormComponent({ heading, text }: { heading?: string, text: any }) {
     const [form, setForm] = useState({
         jmeno: "",
@@ -36,7 +37,7 @@ export default function FormComponent({ heading, text }: { heading?: string, tex
         <section className="flex flex-wrap md:flex-nowrap md:min-h-screen py-10">
             <div className="w-full md:w-1/2 flex flex-col items-center justify-center text-black text-xl px-5 font-light text-center space-y-5">
                 <h1 className="text-4xl text-center">{heading}</h1>
-                <PortableText value={text} />
+                <PortableText value={text} components={components} />
             </div>
             <div className="w-full md:w-1/2 flex flex-col px-5 md:px-0">
                 <form className="m-auto w-full md:w-3/4" action={sendNewsletter}>

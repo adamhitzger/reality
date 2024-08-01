@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from './ui/button'
 import { Staff } from '@/sanity/lib/interfaces'
+import { components } from '@/sanity/lib/components'
 
 export default function StaffComponent({ staff }: { staff: Staff[] }) {
     return (
@@ -14,7 +15,7 @@ export default function StaffComponent({ staff }: { staff: Staff[] }) {
                         <span className='text-[#897953] font-semibold'>{employee.position}</span>
                         <span className='text-4xl font-semibold'>{employee.name}</span>
                         <div className='text-lg py-5'>
-                            <PortableText value={employee.description} />
+                            <PortableText value={employee.description} components={components} />
                         </div>
                         {employee.url &&
                             <Link href={employee.url} className='py-5'>

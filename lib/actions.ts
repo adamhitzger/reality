@@ -33,7 +33,7 @@ export default async function getNemovitosti(params: string){
         const result = await sanityFetch<RealityCard[]>({query: FILTERED_REALITIES_QUERY});
         return { result};
     }catch(error){
-        console.log(error);
+        console.error(error);
         throw error;
     }
 }
