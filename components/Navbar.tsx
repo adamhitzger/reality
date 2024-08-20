@@ -14,7 +14,7 @@ export default function Navbar() {
             image: "/hlavni-obrazek-1.jpg"
         },
         {
-            route: "/podstranky/realitni-stranky",
+            route: "/podstranky/realitni-sluzby",
             label: "Realitní služby",
             image: "/hlavni-obrazek-2.jpg"
         },
