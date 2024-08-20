@@ -20,8 +20,8 @@ export default function RealityComponent({ reality }: { reality: Reality }) {
     const gallery = reality.galleryUrls.slice(0, 12);
     const gallery2 = reality.galleryUrls.slice(13);
     return (
-        <main className="flex flex-col py-10 px-5 md:px-20 w-full min-h-screen z-0">
-            <section className="flex flex-col items-start space-y-2 my-8 mx-auto w-full">
+        <main className="flex flex-col py-10  w-full min-h-screen z-0">
+            <section className="flex flex-col items-start space-y-2 my-8 mx-auto w-full px-5 md:px-20">
                 {reality.name && <h1 className="text-5xl mx-auto font-semibold text-gray-800">{reality.name}</h1>}
                 <div className="flex flex-row space-x-2 mx-auto">
                     {reality.street && <span className="text-lg text-gray-600">{reality.street},</span>}
@@ -32,7 +32,7 @@ export default function RealityComponent({ reality }: { reality: Reality }) {
                     {reality.postcode && <span className="text-lg text-gray-600">{reality.postcode}</span>}
                 </div>
             </section>
-            <section className=" flex flex-wrap md:flex-nowrap my-5 h-1/2">
+            <section className=" flex flex-wrap md:flex-nowrap my-5 h-1/2 px-5 md:px-20">
                 <div className="  relative  w-full md:w-1/2" >
                     {reality.imageUrl && (
                         <Image
@@ -63,7 +63,7 @@ export default function RealityComponent({ reality }: { reality: Reality }) {
                         isDynamic={true}
                     />
                 )))}
-            <section className="w-full py-10  gap-4 grid grid-cols-1 grid-rows-3 md:grid-rows-1 md:grid-cols-3">
+            <section className="w-full py-10  gap-4 grid grid-cols-1 grid-rows-3 md:grid-rows-1 md:grid-cols-3 px-5 md:px-20">
                 {/**uzemní plán, plán domu, katastr, mapa */}
                 {reality.planUrl && (
                     <div className="relative w-full">
@@ -94,15 +94,15 @@ export default function RealityComponent({ reality }: { reality: Reality }) {
 
                 )}
             </section>
-            <section className="flex p-10 md:p-20 text-justify md:text-center text-xl font-light">
+            <section className="flex p-10 md:p-20 text-justify md:text-center text-xl font-light ">
                 <p>Veškeré zveřejněné údaje obsažené v tomto inzerátu mají pouze informativní charakter a nejsou nabídkou ve smyslu § 1731 nebo § 1732 občanského zákoníku, ani se nejedná o veřejný příslib dle § 1733 občanského zákoníku. Z této nabídky tak nikomu nevzniká nárok na uzavření smlouvy. Společnost Hrdina Group s.r.o zprostředkovává údaje (informace) nabyté v dobré víře od vlastníka nemovité věci a z tohoto důvodu nenese odpovědnost za jejich úplnost, správnost a přesnost. Současně není oprávněna uzavírat jménem vlastníka nemovité věci jakékoliv smlouvy spojené s prodejem nemovitosti. </p>
             </section>
 
             <FormComponent heading="Máte zájem? Neváhejte nás kontakovat" text={reality.details} />
 
 
-            <section className="flex flex-wrap md:flex-nowrap my-5 md:min-h-screen text-xl  md:space-x-20">
-                <div className=" w-full md:w-1/2 grid grid-cols-1 divide-y justify-items-start py-10 gap-y-10 border-y">
+            <section className="flex flex-wrap md:flex-nowrap  md:min-h-screen text-xl  md:space-x-20">
+                <div className=" w-full md:w-1/2 grid grid-cols-1 divide-y justify-items-start py-10 gap-y-10 border-y px-10">
                     {reality.price && <div className="space-x-2 w-full flex "><strong>Cena: </strong><span>{reality.price}</span></div>}
                     {reality.type && <div className="space-x-2 w-full flex pt-10"><strong>Druh stavby: </strong><span> {reality.type}</span></div>}
                     {reality.equipment && <div className="space-x-2 w-full flex pt-10"><strong>Vybavení:</strong> <span>{reality.equipment}</span></div>}
@@ -111,7 +111,7 @@ export default function RealityComponent({ reality }: { reality: Reality }) {
                     {reality.owner && <div className="space-x-2 w-full flex pt-10"><strong>Vlastnictví:</strong> <span>{reality.owner}</span></div>}
 
                 </div>
-                <div className="divide-y border-y w-full md:w-1/2 grid grid-cols-1 justify-items-start py-10 gap-y-10">
+                <div className="divide-y border-y w-full md:w-1/2 grid grid-cols-1 justify-items-start py-10 gap-y-10 px-10">
                     {reality.status && <div className="space-x-2 w-full flex"><strong>Status: </strong> <span>{reality.status}</span></div>}
                     {reality.area && <div className="space-x-2 w-full flex pt-10" ><strong>Užitná plocha:</strong> <span>{reality.area} m<sup>2</sup></span></div>}
                     {reality.material && <div className="space-x-2 w-full flex pt-10"><strong>Typ stavby:</strong>  <span>{reality.material}</span></div>}

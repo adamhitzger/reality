@@ -25,8 +25,8 @@ export default function ContactPage() {
                 <div>
                     <h2 className='text-3xl font-semibold mt-12 mb-8'>Kontaktní formulář</h2>
                     <span className='text-gray-400'>Neváhejte navštívit naši kancelář</span>
-                    <div className='w-full flex flex-row items-center '>
-                        <div className='my-5 p-5 border-l-fuchsia-600 border-l-4 w-full md:w-1/2 space-y-3 '>
+                    <div className='w-full flex flex-wrap flex-col lg:flex-row items-center '>
+                        <div className='my-5 p-5 border-l-fuchsia-600 border-l-4 w-full lg:w-1/2 space-y-3 '>
                             <span className='text-xl'>Hrdina Reality</span>
                             <p className='text-sm'>
                                 Havlíčkovo náměstí 56,<br />
@@ -36,7 +36,7 @@ export default function ContactPage() {
                                 <span > <Link href={"#"}>Ukázat na mapě </Link></span><ArrowRight className='mx-3' />
                             </div>
                         </div>
-                        <div className="py-4 h-96 w-full md:w-1/2">
+                        <div className="py-4 h-96 w-full lg:w-1/2">
                             <MyMap latitude={49.6067} longitude={15.5746} />
                         </div>
                     </div>

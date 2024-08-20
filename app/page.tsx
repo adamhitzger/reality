@@ -24,7 +24,7 @@ export default async function Home() {
         <div className="w-full md:w-1/2 flex flex-col justify-center items-center px-20 mx-auto relative">
           <Image src="/logo.jpg" alt="Logo Hrdina reality" fill={true} className="object-cover w-full" />
         </div>
-        <div className={`w-full md:w-1/2 relative flex justify-center`}>
+        <div className={`w-full md:w-1/2  relative flex justify-center`}>
           <Image src="/hero-image.jpg" alt="test" className="object-cover w-full" fill={true} />
         </div>
       </section>

@@ -19,7 +19,7 @@ export default function Navbar() {
             image: "/hlavni-obrazek-2.jpg"
         },
         {
-            route: "/nemovitosti?=naprodej",
+            route: "/nemovitosti",
             label: "Nemovitosti",
             image: "/hlavni-obrazek-3.jpeg"
         },
@@ -44,7 +44,7 @@ export default function Navbar() {
     return (
         <nav className="fixed bottom-0 left-0 w-full flex px-6 justify-between items-center  bg-gray-800 text-white z-50" >
             <div className='w-1/3  m-3'>
-                <div className='w-fit bg-white'>
+                <div className='w-fit '>
                     <Link href={"/"}>
                         <Image
                             width={90}
