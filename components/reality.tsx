@@ -21,7 +21,7 @@ export default function RealityComponent({ reality }: { reality: Reality }) {
     const gallery2 = reality.galleryUrls.slice(13);
     return (
         <main className="flex flex-col py-10 px-5 md:px-20 w-full min-h-screen z-0">
-            <section className="flex flex-col items-start space-y-2 my-8 mx-auto w-full ">
+            <section className="flex flex-col items-start space-y-2 my-8 mx-auto w-full">
                 {reality.name && <h1 className="text-5xl mx-auto font-semibold text-gray-800">{reality.name}</h1>}
                 <div className="flex flex-row space-x-2 mx-auto">
                     {reality.street && <span className="text-lg text-gray-600">{reality.street},</span>}
@@ -63,7 +63,7 @@ export default function RealityComponent({ reality }: { reality: Reality }) {
                         isDynamic={true}
                     />
                 )))}
-            <section className="w-full pb-10  gap-4 grid grid-cols-1 grid-rows-3 md:grid-rows-1 md:grid-cols-3">
+            <section className="w-full py-10  gap-4 grid grid-cols-1 grid-rows-3 md:grid-rows-1 md:grid-cols-3">
                 {/**uzemní plán, plán domu, katastr, mapa */}
                 {reality.planUrl && (
                     <div className="relative w-full">

@@ -9,8 +9,8 @@ export default function TextWithImage({ heading, text, textWithImageUrl, button,
 
     return (
         <section
-            className={` flex flex-wrap md:flex-nowrap py-20 md:min-h-fit  ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} `}>
-            <div className="w-full md:w-1/2 flex flex-col    font-light">
+            className={` flex flex-wrap md:flex-nowrap  md:min-h-fit  ${position === "Obrázek vlevo" ? "md:flex-row-reverse" : "md:flex-row"} `}>
+            <div className="w-full md:w-1/2 flex flex-col min-h-screen px-5  font-light">
                 <div className="flex flex-col w-full m-auto md:px-10">
                     {heading && (
                         <h2 className={`text-2xl  text-center ${heading_cap === "Uppercase" ? "uppercase" : "normal-case"}`}>
@@ -36,7 +36,7 @@ export default function TextWithImage({ heading, text, textWithImageUrl, button,
                 </div>
             </div>
             <div className={`w-full py-10 md:py-0 h-auto md:w-1/2 flex justify-center items-center`}>
-                <div className={`relative h-96 md:min-h-screen ${image_pos === "1/2 sekce" ? "w-full" : (image_pos === "1/4 sekce" ? "w-5/6" : "w-2/3")}`}>
+                <div className={`relative min-h-screen ${image_pos === "1/2 sekce" ? "w-full" : (image_pos === "1/4 sekce" ? "w-5/6" : "w-2/3")}`}>
                     {textWithImageUrl ? <Image src={textWithImageUrl} alt={textWithImageUrl} fill={true} className="object-cover bg-cover" /> : null}
                 </div>
             </div>
