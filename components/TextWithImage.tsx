@@ -35,8 +35,8 @@ export default function TextWithImage({ heading, text, textWithImageUrl, button,
                     )}
                 </div>
             </div>
-            <div className={`w-full py-10 lg:py-0 h-auto lg:w-1/2 flex justify-center items-center`}>
-                <div className={`relative h-[34rem] md:min-h-screen ${image_pos === "1/2 sekce" ? "w-full" : (image_pos === "1/4 sekce" ? "w-5/6" : "w-2/3")}`}>
+            <div className={`w-full py-10 lg:py-0  lg:w-1/2 flex justify-center items-center h-[34rem] md:min-h-screen`}>
+                <div className={`relative h-full  ${image_pos === "1/2 sekce" ? "w-full" : (image_pos === "1/4 sekce" ? "w-5/6 h-2/3" : "w-2/3 h-3/4 md:h-2/4")} `}>
                     {textWithImageUrl ? <Image src={textWithImageUrl} alt={textWithImageUrl} fill={true} className="object-cover" /> : null}
                 </div>
             </div>

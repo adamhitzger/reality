@@ -41,7 +41,7 @@ export default async function getNemovitosti(params: string){
 ;
 
 
-export async function newsletter(formData: FormData, ) {
+export async function newsletter(formData: FormData, subject: string) {
   let jmeno: string = "";
     let phone: string = "";
     let email: string = "";
@@ -66,7 +66,7 @@ export async function newsletter(formData: FormData, ) {
     const mailOptions = {
       from: process.env.FROM_EMAIL,
       to: process.env.TO_EMAIL,
-      subject: "Zpráva z webu",
+      subject: subject,
       text:  `${jmeno}, ${phone}, ${email}, ${prijmeni}, ${msg}` ,
     };
 

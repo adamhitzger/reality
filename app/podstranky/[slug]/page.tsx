@@ -18,7 +18,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     if (!page) {
         return notFound()
     }
-
+    const pagename = page.name;
     return (
         <main className=" flex flex-col space-y-20">
             <section className={`w-full ${!page.pageImageUrl ? "py-5" : "h-screen"} flex relative bg-no-repeat bg-cover `} style={page.pageImageUrl ? { backgroundImage: `url(${page.pageImageUrl})` } : { backgroundColor: "white" }}>
@@ -69,7 +69,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                     </div>
                 ) || s._type === "form" && (
                     <div key={id} className="flex justify-center items-center">
-                        <FormComponent key={id} heading={s.heading} text={s.text} />
+                        <FormComponent key={id} heading={s.heading} text={s.text} pageName={pagename} />
                     </div>
                 )))}
         </main>

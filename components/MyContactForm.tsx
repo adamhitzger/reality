@@ -17,7 +17,7 @@ export default function MyContactForm() {
         setForm({ ...form, [name]: value });
     }
     const sendNewsletter = async (formData: FormData) => {
-        await newsletter(formData);
+        await newsletter(formData, "Kontakt");
         setForm({
             jmeno: "",
             email: "",

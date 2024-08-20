@@ -16,7 +16,7 @@ import Gallery from "./Gallery";
 
 
 export default function RealityComponent({ reality }: { reality: Reality }) {
-
+    const name = reality.name;
     const gallery = reality.galleryUrls.slice(0, 12);
     const gallery2 = reality.galleryUrls.slice(13);
     return (
@@ -98,7 +98,7 @@ export default function RealityComponent({ reality }: { reality: Reality }) {
                 <p>Veškeré zveřejněné údaje obsažené v tomto inzerátu mají pouze informativní charakter a nejsou nabídkou ve smyslu § 1731 nebo § 1732 občanského zákoníku, ani se nejedná o veřejný příslib dle § 1733 občanského zákoníku. Z této nabídky tak nikomu nevzniká nárok na uzavření smlouvy. Společnost Hrdina Group s.r.o zprostředkovává údaje (informace) nabyté v dobré víře od vlastníka nemovité věci a z tohoto důvodu nenese odpovědnost za jejich úplnost, správnost a přesnost. Současně není oprávněna uzavírat jménem vlastníka nemovité věci jakékoliv smlouvy spojené s prodejem nemovitosti. </p>
             </section>
 
-            <FormComponent heading="Máte zájem? Neváhejte nás kontakovat" text={reality.details} />
+            <FormComponent heading="Máte zájem? Neváhejte nás kontakovat" text={reality.details} pageName={name} />
 
 
             <section className="flex flex-wrap md:flex-nowrap  md:min-h-screen text-xl  md:space-x-20">

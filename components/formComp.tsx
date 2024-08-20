@@ -3,9 +3,9 @@
 import { PortableText } from "next-sanity";
 import { Button } from "./ui/button";
 import { useState } from "react";
-import { newsletter } from "@/lib/actions";
+import { newsletter, } from "@/lib/actions";
 import { components } from "@/sanity/lib/components";
-export default function FormComponent({ heading, text }: { heading?: string, text: any }) {
+export default function FormComponent({ heading, text, pageName }: { heading?: string, text: any, pageName: string }) {
     const [form, setForm] = useState({
         jmeno: "",
         prijmeni: "",
@@ -23,7 +23,7 @@ export default function FormComponent({ heading, text }: { heading?: string, tex
         setForm({ ...form, rights: !form.rights });
     }
     const sendNewsletter = async (formData: FormData) => {
-        await newsletter(formData);
+        await newsletter(formData, pageName);
         setForm({
             jmeno: "",
             prijmeni: "",
