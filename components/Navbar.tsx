@@ -42,21 +42,10 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="fixed bottom-0 left-0 w-full flex px-6 justify-between items-center  bg-gray-800 text-white z-50" >
-            <div className='w-1/3  m-3'>
-                <div className='w-fit '>
-                    <Link href={"/"}>
-                        <Image
-                            width={90}
-                            height={120}
-                            src="/reality.png"
-                            alt="Logo"
-                        />
-                    </Link>
-                </div>
-            </div>
+        <nav className="fixed bottom-0 left-0 w-full flex p-6 justify-between items-center  bg-gray-800 text-white z-50 font-light " >
+            <div className='w-1/3'></div>
             <div className='flex justify-center w-1/3'>
-                <Link href={"/"} className='text-2xl md:text-5xl text-center'>HRDINA Reality</Link>
+                <Link href={"/"} className='text-2xl md:text-5xl text-center '>HRDINA Reality</Link>
             </div>
             <div className=" flex flex-1 justify-end items-center mr-10 w-1/3">
                 <Sheet >
@@ -67,7 +56,7 @@ export default function Navbar() {
                                 {navLinks.map((nav, index) => (
                                     <li
                                         key={index}
-                                        className={`font-poppins font-medium cursor-pointer text-5xl text-white
+                                        className={`font-poppins font-extralight cursor-pointer text-2xl md:text-5xl text-white
                                                 } ${index === navLinks.length - 1 ? "mb-0" : "mb-2"}`}
                                         onMouseEnter={() => setHovered(nav.image)}
                                     >

@@ -85,6 +85,7 @@ export const REALITIES_QUERY = groq`*[_type == 'reality' && status == 'Na prodej
     name,
     "slug": slug.current,
     heading,
+    color,
     "pageImageUrl": image.asset->url,
     sections[]{
       _type == "textWithImage" => {

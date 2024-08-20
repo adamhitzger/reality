@@ -20,11 +20,13 @@ export default async function Home() {
   return (
     <main className="flex flex-col">
       <section
-        className={`flex flex-wrap md:flex-nowrap h-screen  bg-gray-100`}>
-        <div className="w-full md:w-1/2 flex flex-col justify-center items-center px-20 mx-auto relative">
-          <Image src="/logo.jpg" alt="Logo Hrdina reality" fill={true} className="object-cover w-full" />
+        className={`flex flex-wrap md:flex-nowrap h-screen  bg-white`}>
+        <div className="w-full md:w-1/2 flex flex-col justify-center items-center px-20 mx-auto">
+          <div className=" flex w-1/2 h-96 relative ">
+            <Image src="/logo.jpg" alt="Logo Hrdina reality" fill={true} className="object-cover w-full" />
+          </div>
         </div>
-        <div className={`w-full md:w-1/2  relative flex justify-center`}>
+        <div className={`w-1/2  relative flex justify-center`}>
           <Image src="/hero-image.jpg" alt="test" className="object-cover w-full" fill={true} />
         </div>
       </section>

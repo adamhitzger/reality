@@ -163,6 +163,7 @@ export interface MyPage {
     slug: {
         current: string;
     };
+    color: "Černá" | "Bílá",
     heading: string;
     pageImageUrl: string;
     sections: Section[];

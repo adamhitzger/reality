@@ -20,9 +20,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
     }
 
     return (
-        <main className=" flex flex-col">
+        <main className=" flex flex-col space-y-20">
             <section className={`w-full ${!page.pageImageUrl ? "py-5" : "h-screen"} flex relative bg-no-repeat bg-cover `} style={page.pageImageUrl ? { backgroundImage: `url(${page.pageImageUrl})` } : { backgroundColor: "white" }}>
-                <div className={`tracking-tight text-center text-4xl m-auto ${!page.pageImageUrl ? "text-black py-10" : "text-white"}`}>
+                <div className={`tracking-tight text-center text-4xl m-auto ${!page.pageImageUrl ? "text-black py-10" : "text-white"} ${page.color === "Černá" ? "text-black" : "text-white"}`}>
                     {page.heading}
                 </div>
             </section>
