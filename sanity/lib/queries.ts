@@ -1,8 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import "server-only";
 
 >>>>>>> f5c87ce01d755afdb9ddc7f797a44aa446a260e8
+=======
+import "server-only";
+
+>>>>>>> origin/main
 import { groq } from "next-sanity";
 
 export const BOOK_QUERY = groq`*[_type == 'book'] | order(_createdAt desc) {

@@ -2,10 +2,14 @@
 
 import type { ClientPerspective, QueryParams } from "next-sanity";
 <<<<<<< HEAD
+<<<<<<< HEAD
 //import { draftMode } from "next/headers";
 =======
 import { draftMode } from "next/headers";
 >>>>>>> f5c87ce01d755afdb9ddc7f797a44aa446a260e8
+=======
+import { draftMode } from "next/headers";
+>>>>>>> origin/main
 
 import { client } from "./client";
 import { token } from "./token";
@@ -13,6 +17,7 @@ import { token } from "./token";
 export async function sanityFetch<QueryResponse>({
   query,
   params = {},
+<<<<<<< HEAD
 <<<<<<< HEAD
   //perspective = draftMode().isEnabled ? "previewDrafts" : "published",
   //stega = perspective === "previewDrafts" ||
@@ -27,6 +32,8 @@ export async function sanityFetch<QueryResponse>({
   return client.fetch<QueryResponse>(query, params, {
     //stega,
 =======
+=======
+>>>>>>> origin/main
   perspective = draftMode().isEnabled ? "previewDrafts" : "published",
   stega = perspective === "previewDrafts" ||
     process.env.VERCEL_ENV === "preview",
@@ -47,7 +54,10 @@ export async function sanityFetch<QueryResponse>({
   }
   return client.fetch<QueryResponse>(query, params, {
     stega,
+<<<<<<< HEAD
 >>>>>>> f5c87ce01d755afdb9ddc7f797a44aa446a260e8
+=======
+>>>>>>> origin/main
     perspective: "published",
     useCdn: true,
     next: { revalidate: 30 },
