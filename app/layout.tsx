@@ -33,16 +33,17 @@ children
   return (
     <html lang="en">
       <body className={font.className}>
+      {draftMode().isEnabled && (
 
-          <div>
-            <a className="p-4 bg-blue-300 block" href="/api/disable-draft">
-              Disable preview mode
-            </a>
-          </div>
+<div>
+  <a className="p-4 bg-blue-300 block" href="/api/disable-draft">
+    Disable preview mode
+  </a>
+</div>
+)}
+          
         <Navbar />
-        <main>
           {children}
-          </main>
         <Footer />
 
         {(await draftMode()).isEnabled && <VisualEditing />}
