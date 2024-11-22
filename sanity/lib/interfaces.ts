@@ -164,6 +164,7 @@ export interface MyPage {
         current: string;
     };
     color: "Černá" | "Bílá",
+    overview: string,
     heading: string;
     pageImageUrl: string;
     sections: Section[];

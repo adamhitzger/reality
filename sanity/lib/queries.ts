@@ -86,6 +86,7 @@ export const REALITIES_QUERY = groq`*[_type == 'reality' && status == 'Na prodej
 
    export const PAGE_QUERY = groq`*[_type == "page" && slug.current == $slug][0]{
     name,
+    overview,
     "slug": slug.current,
     heading,
     color,

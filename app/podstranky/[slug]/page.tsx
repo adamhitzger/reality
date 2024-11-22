@@ -10,6 +10,47 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import Step from "@/components/Step";
 import { MyPage, Section, Steps, TextWithImageSection } from "@/sanity/lib/interfaces";
 import FormComponent from "@/components/formComp"
+import { ResolvingMetadata, Metadata } from "next";
+
+export async function generateMetadata({params, parent}:{params: { slug: string}, parent: ResolvingMetadata}):Promise<Metadata>{
+    const page = await sanityFetch<MyPage>({ query: PAGE_QUERY, params });
+    
+    return{
+        icons: {
+            icon: "/logo.jpg"
+          },
+        title: page.name,
+        description: page.overview,
+        applicationName: "Hrdina Reality",
+        authors: [{name: "Lukáš Hrdina", url: "https://lukashrdina.cz"}, {name: "Jana Hrdinová"}],
+        generator: "Next.js",
+        keywords: [ page.name,"Hrdina Reality", "Havlíčkův Brod", "Realitní služby", "makléř Havlíčkův Brod",
+  "realitní makléř Havlíčkův Brod",
+  "prodej nemovitostí Havlíčkův Brod",
+  "koupě nemovitostí Havlíčkův Brod",
+  "pronájem Havlíčkův Brod",
+  "nemovitosti Havlíčkův Brod",
+  "realitní služby Havlíčkův Brod",
+  "osobní přístup realitní makléř",
+  "profesionální makléř Havlíčkův Brod",
+  "realitní poradenství Havlíčkův Brod"],
+        creator: "Adam Hitzger",
+        publisher: "Adam Hitzger",
+        formatDetection: {
+            email: false,
+            address: false,
+            telephone: false,
+          },
+        openGraph: {
+            title: page.name,
+            description: page.overview,
+            url:`https://hrdinareality.cz/nemovitosti/${page.slug}`,
+            siteName: "Hrdina Reality",
+            locale: "cs_CZ",
+            type: "website"
+        }
+    }
+}
 
 export default async function Page({ params }: { params: { slug: string } }) {
     const page = await sanityFetch<MyPage>({ query: PAGE_QUERY, params });

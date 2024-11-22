@@ -11,6 +11,11 @@ export const pageType = defineType({
             title: "Název stránka",
         }),
         defineField({
+            name: "overview",
+            type: "string",
+            title: "Popisek pro Google(důležité!)",
+        }),
+        defineField({
             name: "color",
             type: "string",
             title: "Barva nadpisu celé stránky",

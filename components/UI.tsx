@@ -30,7 +30,7 @@ export const UI = ({data}: {data: BookInter[]}) => {
                 }`}
                 onClick={() => setPage(index)}
               >
-                {index === 0 ? "Cover" : `Page ${index}`}
+                {index === 0 ? "Přední stránka" : `${index}. stránka`}
               </button>
             ))}
             <button
@@ -41,7 +41,7 @@ export const UI = ({data}: {data: BookInter[]}) => {
               }`}
               onClick={() => setPage(data.length)}
             >
-              Back Cover
+              Zadní stránka
             </button>
           </div>
         </div>
