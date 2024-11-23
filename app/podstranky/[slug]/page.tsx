@@ -12,7 +12,7 @@ import { MyPage, Section, Steps, TextWithImageSection } from "@/sanity/lib/inter
 import FormComponent from "@/components/formComp"
 import { ResolvingMetadata, Metadata } from "next";
 
-export async function generateMetadata({params, parent}:{params: { slug: string}, parent: ResolvingMetadata}):Promise<Metadata>{
+export async function generateMetadata({params}:{params: { slug: string}}):Promise<Metadata>{
     const page = await sanityFetch<MyPage>({ query: PAGE_QUERY, params });
     
     return{

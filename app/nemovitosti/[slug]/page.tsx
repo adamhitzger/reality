@@ -5,7 +5,7 @@ import RealityComponent from "@/components/reality";
 import { Reality } from "@/sanity/lib/interfaces";
 import { Metadata, ResolvingMetadata } from "next";
 
-export async function generateMetadata({params, parent}:{params: { slug: string}, parent: ResolvingMetadata}):Promise<Metadata>{
+export async function generateMetadata({params}:{params: { slug: string}}):Promise<Metadata>{
     let r = await sanityFetch<Reality>({ query: REALITY_QUERY, params });
     
     return{
