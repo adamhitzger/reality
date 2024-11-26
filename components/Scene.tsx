@@ -29,7 +29,14 @@ export function Scene({ book }: { book: BookInter[] }) {
       >
         <Book data={book}/>
       </Float>
-      <OrbitControls />
+      <OrbitControls
+      minPolarAngle={Math.PI / 2} // Omezí spodní pohyb na 45 stupňů
+      maxPolarAngle={Math.PI / 2} // Omezí horní pohyb na 90 stupňů
+      minAzimuthAngle={-Math.PI / 2} // Omezí horizontální pohyb doleva
+      maxAzimuthAngle={Math.PI / 2} // Omezí horizontální pohyb doprava
+      minDistance={3} // Minimální vzdálenost kamery od cíle
+      maxDistance={6}
+      />
       <Environment preset="studio"></Environment>
       <directionalLight
         position={[2, 5, 2]}

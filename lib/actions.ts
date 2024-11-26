@@ -4,7 +4,7 @@ import { sanityFetch } from "@/sanity/lib/fetch";
 import { RealityCard } from "@/sanity/lib/interfaces";
 import { groq } from "next-sanity";
 import {createTransport } from "nodemailer"
-export default async function getNemovitosti(params: string){
+export default async function getNemovitosti(params: string, start: number, end: number){
     let filter: string = "";
     
     switch(params) {
@@ -21,7 +21,7 @@ export default async function getNemovitosti(params: string){
             break;
     }
 
-    const FILTERED_REALITIES_QUERY = groq`*[_type == 'reality' && status == '${filter}'] | order(_createdAt desc) {
+    const FILTERED_REALITIES_QUERY = groq`*[_type == 'reality' && status == '${filter}'] | order(_createdAt desc)[${start}..${end}] {
         name,
         'slug': slug.current,
         overview,
@@ -29,9 +29,13 @@ export default async function getNemovitosti(params: string){
         "imageUrl": image.asset->url
       }`;
 
+      const COUNT_ALL_REALITIES = groq`count(*[_type == 'reality'])`;
+
     try {
         const result = await sanityFetch<RealityCard[]>({query: FILTERED_REALITIES_QUERY});
-        return { result};
+        const count = await sanityFetch<RealityCard[]>({query: COUNT_ALL_REALITIES});
+        
+        return { result, count };
     }catch(error){
         console.error(error);
         throw error;
