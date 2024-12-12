@@ -101,7 +101,7 @@ export default function RealityComponent({ reality }: { reality: Reality }) {
             <FormComponent heading="Máte zájem? Neváhejte nás kontakovat" text={reality.details} pageName={name} />
 
 
-            <section className="flex flex-wrap md:flex-nowrap  md:min-h-screen text-xl  md:space-x-20">
+            <section className="flex flex-wrap md:flex-nowrap text-xl  md:space-x-20">
                 <div className=" w-full md:w-1/2 grid grid-cols-1 divide-y justify-items-start py-10 gap-y-10 border-y px-10">
                     {reality.price && <div className="space-x-2 w-full flex "><strong>Cena: </strong><span>{reality.price}</span></div>}
                     {reality.type && <div className="space-x-2 w-full flex pt-10"><strong>Druh stavby: </strong><span> {reality.type}</span></div>}

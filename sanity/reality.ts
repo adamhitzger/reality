@@ -129,7 +129,7 @@ export const realityType = defineType({
             title: "Typ nemovitosti",
             type: "string",
             options: {
-                list: ["Byt", "Rodinný dům"],
+                list: ["Byt", "Rodinný dům", "Chata", "Chalupa", "Pozemek"],
                 layout: "dropdown",
             }
         }),
