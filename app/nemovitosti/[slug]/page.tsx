@@ -41,25 +41,11 @@ export async function generateMetadata({params}:{params: { slug: string}}):Promi
             siteName: "Hrdina Reality",
             images: [
                 {
-                    url: r.galleryUrls[0],
+                    url: r.imageUrl,
                     width: 800,
                     height: 600,
                 },
-                {
-                    url: r.galleryUrls[1],
-                    width: 800,
-                    height: 600,
-                },
-                {
-                    url: r.galleryUrls[2],
-                    width: 800,
-                    height: 600,
-                },
-                {
-                    url: r.galleryUrls[3],
-                    width: 800,
-                    height: 600,
-                },
+                
             ],
             locale: "cs_CZ",
             type: "website"

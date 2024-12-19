@@ -17,7 +17,7 @@ export const STAFF_QUERY = groq`*[_type == 'staff'] | order(poradi asc) {
   "staffUrl": image.asset->url,
 }`;
 
-export const REALITIES_QUERY = groq`*[_type == 'reality' && status == 'Na prodej'][0...5] | order(_createdAt desc) {
+export const REALITIES_QUERY = groq`*[_type == 'reality' && status == 'Na prodej'][0...5]  {
     name,
     'slug': slug.current,
     overview,

@@ -21,7 +21,7 @@ export default async function getNemovitosti(params: string, start: number, end:
             break;
     }
 
-    const FILTERED_REALITIES_QUERY = groq`*[_type == 'reality' && status == '${filter}'] | order(_createdAt desc)[${start}..${end}] {
+    const FILTERED_REALITIES_QUERY = groq`*[_type == 'reality' && status == '${filter}'] | order(_createdAt asc)[${start}..${end}] {
         name,
         'slug': slug.current,
         overview,
@@ -29,7 +29,7 @@ export default async function getNemovitosti(params: string, start: number, end:
         "imageUrl": image.asset->url
       }`;
 
-      const COUNT_ALL_REALITIES = groq`count(*[_type == 'reality'])`;
+      const COUNT_ALL_REALITIES = groq`count(*[_type == 'reality' && status == '${filter}'])`;
 
     try {
         const result = await sanityFetch<RealityCard[]>({query: FILTERED_REALITIES_QUERY});

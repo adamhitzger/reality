@@ -5,7 +5,7 @@ import PaginationComp from "@/components/pagination";
 
 export default async function Nemovitosti({ searchParams }: { searchParams: { [key: string]: string | undefined } }) {
     let query;
-    const PAGE_SIZE = 3;
+    const PAGE_SIZE = 10;
     await searchParams
     const currentPage = parseInt(searchParams.page || '1');
     const size = currentPage > 1 ? PAGE_SIZE + 1 : PAGE_SIZE;

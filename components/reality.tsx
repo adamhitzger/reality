@@ -17,8 +17,12 @@ import Gallery from "./Gallery";
 
 export default function RealityComponent({ reality }: { reality: Reality }) {
     const name = reality.name;
-    const gallery = reality.galleryUrls.slice(0, 12);
-    const gallery2 = reality.galleryUrls.slice(13);
+    let gallery, gallery2;
+    if(reality.galleryUrls !== null){
+        gallery = reality.galleryUrls.slice(0, 12);
+   gallery2 = reality.galleryUrls.slice(13);
+    }
+    
     return (
         <main className="flex flex-col py-10  w-full min-h-screen z-0">
             <section className="flex flex-col items-start space-y-2 my-8 mx-auto w-full px-5 md:px-20">
@@ -44,9 +48,9 @@ export default function RealityComponent({ reality }: { reality: Reality }) {
                         />
                     )}
                 </div>
-                <Gallery gallery={gallery} />
+                { gallery ? <Gallery gallery={gallery} /> : null}
             </section>
-            <Photos gallery={gallery2} />
+            { gallery2 ? <Photos gallery={gallery2} /> : null }
 
             {reality.sections?.map((s: TextWithImageSection, id: number) => (
                 s._type === "textWithImage" && (

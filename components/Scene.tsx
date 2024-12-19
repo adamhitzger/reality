@@ -21,26 +21,20 @@ export function Scene({ book }: { book: BookInter[] }) {
           }}>
           <group position-y={0}>
             <Suspense fallback={null}>
-            <Float
-        rotation-x={-Math.PI / 4}
-        floatIntensity={1}
-        speed={2}
-        rotationIntensity={2}
-      >
+           
         <Book data={book}/>
-      </Float>
       <OrbitControls
       minPolarAngle={Math.PI / 2} // Omezí spodní pohyb na 45 stupňů
       maxPolarAngle={Math.PI / 2} // Omezí horní pohyb na 90 stupňů
       minAzimuthAngle={-Math.PI / 2} // Omezí horizontální pohyb doleva
       maxAzimuthAngle={Math.PI / 2} // Omezí horizontální pohyb doprava
-      minDistance={3} // Minimální vzdálenost kamery od cíle
-      maxDistance={6}
+      minDistance={1} // Minimální vzdálenost kamery od cíle
+      maxDistance={3}
       />
-      <Environment preset="studio"></Environment>
+      <Environment preset="forest"></Environment>
       <directionalLight
         position={[2, 5, 2]}
-        intensity={2.5}
+        intensity={0.5}
         castShadow
         shadow-mapSize-width={2048}
         shadow-mapSize-height={2048}

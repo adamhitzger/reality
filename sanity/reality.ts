@@ -22,6 +22,7 @@ export const realityType = defineType({
             name: "overview",
             title: "Náhledový text na hl. stránce",
             type: "string",
+            validation: Rule => Rule.max(150)
         }),
         defineField({
             name: "street",
@@ -54,7 +55,7 @@ export const realityType = defineType({
                 {
                     type: "image",
                 },
-            ]
+            ],
         }),
         defineField({
             name: "image",

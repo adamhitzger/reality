@@ -31,7 +31,8 @@ export default function PaginationComp({ currentPage, totalPages }: Props) {
         router.push(newUrl, { scroll: false });
     };
     return (
-        <Pagination>
+        <div className='ma-w-fit flex flex-row  overflow-y-scroll'>
+        <Pagination >
             <PaginationContent>
                 <PaginationItem>
                     {currentPage > 1 && (
@@ -76,5 +77,6 @@ export default function PaginationComp({ currentPage, totalPages }: Props) {
                 </PaginationItem>
             </PaginationContent>
         </Pagination>
+        </div>
     )
 }
