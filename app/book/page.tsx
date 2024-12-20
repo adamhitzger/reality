@@ -14,9 +14,9 @@ export default async function BookPage() {
     const pages: number = data.length - 1;
     console.log(data);
     return (
-        <main className='min-h-screen w-full flex flex-col'>
+        <div className='min-h-screen w-full flex flex-col'>
 
                 <Scene book={data} />
-        </main>
+        </div>
     )
 }
