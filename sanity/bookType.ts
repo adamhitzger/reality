@@ -9,11 +9,17 @@ export const bookType = defineType({
             name: "front",
             title:"Přední strana",
             type: "image",
+            options: {
+                hotspot: true
+            }
         }),
         defineField({
             name: "back",
             title: "Zadní strana",
             type: "image",
+            options: {
+                hotspot: true
+            }
         })
     ]
 

@@ -158,7 +158,7 @@ const Page = ({ number, front, back, page, opened, bookClosed, ...props }: {numb
     mesh.add(skeleton.bones[0]);
     mesh.bind(skeleton);
     return mesh;
-  }, []);
+  }, [number, picture, picture2, pictureRoughness]);
 
   // useHelper(skinnedMeshRef, SkeletonHelper, "red");
 
