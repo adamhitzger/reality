@@ -10,8 +10,6 @@ import { UI } from './UI';
 export function Scene({ book }: { book: BookInter[] }) {
     const pages = book.length - 1;
     console.log(pages)
-    const [cameraPosition, setCameraPosition] = useState<Vector3>([0, 0, 0]);
-
     return (
         <>
         <UI data={book}/>
