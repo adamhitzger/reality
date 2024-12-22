@@ -9,10 +9,25 @@ import { UI } from './UI';
 
 export function Scene({ book }: { book: BookInter[] }) {
     const pages = book.length - 1;
-    console.log(pages)
+    const mb = book.slice(0,10);
+    const [isMobile, setIsMobile] = useState(false);
+
+  // Detect screen width on the client side
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 800);
+    };
+
+    // Set initial value
+    handleResize();
+
+    // Listen for resize events
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
     return (
         <>
-        <UI data={book}/>
+        {!isMobile ? <UI data={book}/>: <UI data={mb}/> }
         <Canvas shadows className='flex w-full border-2' style={{ height: "100vh" }} camera={{
             position: [-0.5, 1, 9],
             fov: 45,
@@ -20,7 +35,7 @@ export function Scene({ book }: { book: BookInter[] }) {
           <group position-y={0}>
             <Suspense fallback={<Box args={[1,1,1]}/>}>
            
-        <Book data={book}/>
+        {!isMobile ? <Book data={book}/>: <Book data={mb}/>}
       <OrbitControls
       minPolarAngle={Math.PI / 2} // Omezí spodní pohyb na 45 stupňů
       maxPolarAngle={Math.PI / 2} // Omezí horní pohyb na 90 stupňů
