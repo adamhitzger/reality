@@ -49,7 +49,7 @@ export default function Navbar() {
             </div>
             <div className=" flex flex-1 justify-end items-center mr-10 w-1/3">
                 <Sheet >
-                    <SheetTrigger><Menu width={32} height={32} color="white" /></SheetTrigger>
+                    <SheetTrigger aria-label='Open dialog' aria-roledescription='dialog'><Menu width={32} height={32} color="white" /></SheetTrigger>
                     <SheetContent side={"right"} className="bg-gray-800 w-full ">
                         <SheetDescription className=' w-full h-full  flex items-center px-24 justify-center'>
                             <ul className="list-none flex justify-end items-start flex-1 flex-col space-y-10 w-fit z-50">

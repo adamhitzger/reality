@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo.jpg"
   },
+  title: "Hrdina reality Ostrov Havlíčkův Brod",
   applicationName: "Hrdina reality",
   generator: "Next.ts",
   description: "Hrdina reality - můžete nás navštívit na adrese Havlíčkovo náměstí 56, Havlíčkův Brod 580 01 .",

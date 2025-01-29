@@ -25,7 +25,7 @@ export default async function Home() {
           <Image src="/reality.png" alt="Logo Hrdina reality" width={150} height={150} />
         </div>
         <div className={`w-full md:w-1/2 relative flex justify-center h-[28rem] md:min-h-screen`}>
-          <Image src="/hero-image.jpg" alt="test" className="object-cover h-full  w-full" fill={true} />
+          <Image src="/hero-image.jpg" alt="test" className="object-cover h-full  w-full" fill={true} loading="eager"/>
         </div>
       </section>
       <section className="flex flex-col py-20 px-5">

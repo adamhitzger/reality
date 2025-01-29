@@ -10,7 +10,7 @@ export default function MyMap({ latitude, longitude }: { latitude: number, longi
     return (
 
         <Map
-            mapboxAccessToken={process.env.MAPBOX_API_TOKEN!}
+            mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN!}
             initialViewState={{
                 longitude: lng,
                 latitude: lat,
