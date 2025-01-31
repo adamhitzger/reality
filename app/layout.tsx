@@ -5,6 +5,7 @@ import { draftMode } from "next/headers"
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import Head from "next/head";
 
 const font = Montserrat({ subsets: ["latin"] })
 export const metadata: Metadata = {
@@ -43,6 +44,13 @@ children
 }>) {
   return (
     <html lang="en">
+      <Head>
+      <link
+          rel="canonical"
+          href="https://www.hrdinareality.cz"
+          key="canonical"
+        />
+      </Head>
       <body className={font.className}>
       {draftMode().isEnabled && (
 
