@@ -2,16 +2,16 @@
 
 import React, { Suspense, useState, useEffect} from 'react'
 import { Canvas, useThree, Vector3 } from "@react-three/fiber";
-import { OrbitControls, Plane, ScrollControls, useTexture,Environment, Float, Box, } from "@react-three/drei";
+import { OrbitControls, Plane, ScrollControls, useTexture,Environment, Float, Box, Html, } from "@react-three/drei";
 import { BookInter, BookPos } from '@/sanity/lib/interfaces';
 import { Book } from './Book';
 import { UI } from './UI';
+import LoadingScreen from './loadingScreen';
 
 export function Scene({ book }: { book: BookInter[] }) {
     const pages = book.length - 1;
     const mb = book.slice(0,10);
     const [isMobile, setIsMobile] = useState(false);
-
   // Detect screen width on the client side
   useEffect(() => {
     const handleResize = () => {
@@ -33,8 +33,7 @@ export function Scene({ book }: { book: BookInter[] }) {
             fov: 45,
           }}>
           <group position-y={0}>
-            <Suspense fallback={<Box args={[1,1,1]}/>}>
-           
+            <Suspense fallback={null}>
         {!isMobile ? <Book data={book}/>: <Book data={mb}/>}
       <OrbitControls
       minPolarAngle={Math.PI / 2} // Omezí spodní pohyb na 45 stupňů
@@ -57,8 +56,12 @@ export function Scene({ book }: { book: BookInter[] }) {
         <planeGeometry args={[100, 100]} />
         <shadowMaterial transparent opacity={0.2} />
       </mesh>
-            </Suspense>
+      </Suspense>
           </group>
+          <Html>
+            <LoadingScreen/>
+            </Html>
+
         </Canvas>
         </>
     );

@@ -59,6 +59,10 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "fade-out": {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0", visibility: "hidden" },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -88,6 +92,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "card": "card 0.4s ease",
         "slide-in": "slide-in 0.3 ease-in",
+        "fade-out": "fade-out 0.5s ease-in-out forwards 1s",
       },
     },
   },
