@@ -92,7 +92,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "card": "card 0.4s ease",
         "slide-in": "slide-in 0.3 ease-in",
-        "fade-out": "fade-out 0.5s ease-in-out forwards 1s",
+        "fade-out": "fade-out 0.3s ease-in-out forwards 1s",
       },
     },
   },
