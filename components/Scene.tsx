@@ -1,8 +1,8 @@
 "use client";
 
 import React, { Suspense, useState, useEffect} from 'react'
-import { Canvas, useThree, Vector3 } from "@react-three/fiber";
-import { OrbitControls, Plane, ScrollControls, useTexture,Environment, Float, Box, Html, } from "@react-three/drei";
+import { Canvas,  } from "@react-three/fiber";
+import { OrbitControls,Environment, Html } from "@react-three/drei";
 import { BookInter, BookPos } from '@/sanity/lib/interfaces';
 import { Book } from './Book';
 import { UI } from './UI';
@@ -41,7 +41,7 @@ export function Scene({ book }: { book: BookInter[] }) {
       minAzimuthAngle={-Math.PI / 2} // Omezí horizontální pohyb doleva
       maxAzimuthAngle={Math.PI / 2} // Omezí horizontální pohyb doprava
       minDistance={1} // Minimální vzdálenost kamery od cíle
-      maxDistance={3}
+      maxDistance={4}
       />
       <Environment preset="forest"></Environment>
       <directionalLight
