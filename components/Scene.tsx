@@ -10,7 +10,7 @@ import LoadingScreen from './loadingScreen';
 
 export function Scene({ book }: { book: BookInter[] }) {
     const pages = book.length - 1;
-    const mb = book.slice(0,10);
+    const mb = book.slice(0,7);
     const [isMobile, setIsMobile] = useState(false);
   // Detect screen width on the client side
   useEffect(() => {
