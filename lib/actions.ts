@@ -42,8 +42,6 @@ export default async function getNemovitosti(params: string, start: number, end:
     }
 }
 
-;
-
 
 export async function newsletter(formData: FormData, subject: string) {
   let jmeno: string = "";
@@ -53,11 +51,11 @@ export async function newsletter(formData: FormData, subject: string) {
     let msg: string = "";
 
     
-        jmeno = formData.get("jmeno") as string;
-        phone = formData.get("tel") as string;
-        email = formData.get("email") as string;
-        prijmeni = formData.get("prijmeni") as string;
-        msg = formData.get("msg") as string;
+    jmeno = formData.get("jmeno") as string;
+    phone = formData.get("tel") as string;
+    email = formData.get("email") as string;
+    prijmeni = formData.get("prijmeni") as string;
+    msg = formData.get("msg") as string;
 
     const transporter = createTransport({
      service: "gmail",
@@ -69,13 +67,14 @@ export async function newsletter(formData: FormData, subject: string) {
   
     const mailOptions = {
       from: process.env.FROM_EMAIL,
-      to: process.env.TO_EMAIL,
+      to: "lukas.hrdina@hrdinareality.cz",
       subject: subject,
       text:  `${jmeno}, ${phone}, ${email}, ${prijmeni}, ${msg}` ,
     };
 
     try{
-      await  transporter.sendMail(mailOptions);  
+    await  transporter.sendMail(mailOptions);  
+    
     }catch(error){
       console.log(error);
     }

@@ -51,7 +51,6 @@ export default function FormComponent({ heading, text, pageName }: { heading?: s
                     <input type="tel" name="tel" id="tel" required className="border w-full border-gray-400 p-3 my-3" value={form.tel} placeholder="Vaše telefonní číslo" onChange={handleChange} /><br />
                     <label htmlFor="msg">Zpráva</label><br />
                     <textarea name='msg' className="border w-full border-gray-400 p-3 my-3" id='msg' value={form.msg} onChange={handleChange} required></textarea><br />
-
                     <input type="checkbox" id="rights" name="rights" value="ano" className="my-3" onChange={handleChangeCheckbox} checked={form.rights} />
                     <label htmlFor="rights"> Souhlasím s Podmínkami a Zásadami ochrany osobních údajů</label><br />
                     <Button className="w-full my-3">Odeslat</Button>

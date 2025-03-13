@@ -29,6 +29,8 @@ export default function ContactPage() {
                         <div className='my-5 p-5 border-l-fuchsia-600 border-l-4 w-full lg:w-1/2 space-y-3 '>
                             <span className='text-xl'>Hrdina Reality</span>
                             <p className='text-sm'>
+                                <a href="mailto:lukas.hrdina@hrdinareality.cz">Email: lukas.hrdina@hrdinareality.cz</a><br/>
+                                <a href="tel:+420 773 498 424">Tel.číslo: +420 773 498 424</a><br/>
                                 Havlíčkovo náměstí 56,<br />
                                 Havlíčkův Brod 580 01
                             </p>
@@ -37,7 +39,7 @@ export default function ContactPage() {
                             </div>
                         </div>
                         <div className="py-4 h-96 w-full lg:w-1/2">
-                            <MyMap latitude={49.6067} longitude={15.5746} />
+                            <MyMap latitude={49.6067156} longitude={15.5785089} />
                         </div>
                     </div>
 
