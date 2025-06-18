@@ -69,7 +69,7 @@ export async function newsletter(formData: FormData, subject: string) {
       from: process.env.FROM_EMAIL,
       to: "lukas.hrdina@hrdinareality.cz",
       subject: subject,
-      text:  `${jmeno}, ${phone}, ${email}, ${prijmeni}, ${msg}` ,
+      text:  `Celé jméno: ${jmeno} \nTel. číslo: ${phone}\nEmail:${email}, , ${msg}` ,
     };
 
     try{

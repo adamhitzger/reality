@@ -11,16 +11,11 @@ import { useRef } from "react";
 
 export default function TextWithImage({ heading, text, textWithImageUrl, button, position, image_pos, heading_cap, isDynamic, _type = "textWithImage" }: TextWithImageSection) {
     const ref = useRef(null)
-    const ref2 = useRef(null)
-    const inView = useInView(ref,{amount: 0.5})
     const inView2 = useInView(ref,{amount: 0.5})
     return (
         <section ref={ref} className={` flex flex-wrap lg:flex-nowrap  lg:min-h-fit  ${position === "Obrázek vlevo" ? "lg:flex-row-reverse" : "lg:flex-row"} `}>
-            <motion.div 
-            initial={{opacity: 0, x: -500}}
-            animate={inView?{opacity: 1, x: 0}: {}}
-            exit={{opacity: 0, x: 500}}
-            transition={{duration: 0.5}}
+            <div 
+            
             className="w-full lg:w-1/2 flex flex-col md:min-h-screen p-5  font-light">
                 <div className="flex flex-col w-full m-auto lg:px-10">
                     {heading && (
@@ -45,7 +40,7 @@ export default function TextWithImage({ heading, text, textWithImageUrl, button,
                         </div>
                     )}
                 </div>
-            </motion.div>
+            </div>
             <motion.div 
             initial={{opacity: 0, x: 500}}
             animate={inView2?{opacity: 1, x: 0}: {}}
